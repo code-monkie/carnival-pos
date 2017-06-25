@@ -1,11 +1,11 @@
-<div class="card" style="max-width: 200px;">
+<div class="card" style="width: 400px; height: 400px;">
   <h3 class="card-header">{{menuItem.name | uppercase}}</h3>
   <!-- Image -->
   <a href="">
-    <img class="card-img-top" [src]="menuItem.imageUrl" style="max-height: 150px;" alt="Mmmmm Burger">
+    <img class="card-img-top" [src]="menuItem.imageUrl" style="max-width: 300px; max-height: 300px" alt="Mmmmm Burger">
   </a> 
   <!-- Text Content -->
-  <div class="card-block text-center">
+  <div class="card-footer text-center">
       <h2 class="card-text">{{ menuItem.price / 100 | currency: 'USD': true}}</h2>
   </div>
 </div>

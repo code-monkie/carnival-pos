@@ -1,0 +1,27 @@
+<div class="container-fluid d-flex">
+  <nav class="navbar navbar-dark navbar-inverse bg-inverse navbar-toggleable-md fixed-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+       &#9776;
+    </button>
+    <a class="navbar-brand" routerLink="/"><img src="../../assets/logo.png" class="img-fluid"/></a>
+   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link hidden-sm-down" routerLink="/menu">MENU</a>
+        <a class="nav-link" routerLink="/order">ORDER</a>
+        <!--a class="nav-link" routerLink="/locked">Locked</a-->
+        <ng-template [ngIf]="authService.isAuthenticated()">
+          <li class="nav-link" (click)="saveMenu()">SAVE MENU</li>
+        </ng-template>
+      </div>
+      <div class="navbar-nav ml-auto">
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <li class="nav-link"><a routerLink="/signin">LOGIN</a></li>
+          <li class="nav-link"><a routerLink="/register">REGISTER</a></li>
+        </ng-template>
+        <ng-template [ngIf]="authService.isAuthenticated()">
+          <li class="nav-link"><a style="cursor: pointer" (click)="logout()">LOGOUT</a></li>
+        </ng-template>
+      </div>
+    </div>
+  </nav>
+</div>

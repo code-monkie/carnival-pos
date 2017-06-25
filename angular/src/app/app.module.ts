@@ -1,20 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import { MenusModule } from './menus/menus.module';
+import { AuthModule } from './auth/auth.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SigninComponent } from './auth/signin/signin.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { Routing } from './app.routing';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth-guard';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 import { CurrentOrderComponent } from './current-order/current-order.component';
-import { MenuService } from './services/menu.service';
-import { MenuItemComponent } from './menu/menu-item/menu-item.component';
-import { MenuComponent } from './menu/menu.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LockedComponentComponent } from './locked-component/locked-component.component';
+
+import { MenusService } from './menus/menus.service';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -22,19 +23,17 @@ import { MenuComponent } from './menu/menu.component';
     TransactionHistoryComponent,
     CurrentOrderComponent,
     DashboardComponent,
-    MenuItemComponent,
-    MenuComponent,
-    SigninComponent,
-    SignupComponent,
-    PageNotFoundComponent,
+    NavbarComponent,
+    LockedComponentComponent,
   ],
   imports: [
     BrowserModule,
-    Routing,
-    FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule,
+    MenusModule,
+    AuthModule
   ],
-  providers: [AuthService, MenuService],
+  providers: [AuthService, MenusService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

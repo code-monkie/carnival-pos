@@ -10,6 +10,9 @@ export class AuthService {
 
   signupUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(
+        response => {this.router.navigate(['/signin'])}
+      )
       .catch(
         error => console.log(error)
       )
@@ -19,11 +22,9 @@ export class AuthService {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(
         response => {
-          this.router.navigate(['/']);
           firebase.auth().currentUser.getIdToken()
-            .then(
-              (token: string) => this.token = token
-            )
+            .then((token: string) => this.token = token)
+          this.router.navigate(['/']);
         }
       )
       .catch(
@@ -38,13 +39,26 @@ export class AuthService {
 
   getIdToken() {
     firebase.auth().currentUser.getIdToken()
-      .then(
-        (token: string) => this.token = token
-      );
+      .then((token: string) => this.token = token);
     return this.token;
   }
 
   isAuthenticated() {
     return this.token != null;
   }
+
+  initializeToken() {
+    this.token = this.getToken();
+  }
+
+  getUser() {
+    return JSON.parse(localStorage.getItem('currentUser'));
+  }
+
+  getToken(): string {
+    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    var token = currentUser && currentUser.token;
+    console.log(token ? token : "");
+    return token ? token : null;
+    }
 }
