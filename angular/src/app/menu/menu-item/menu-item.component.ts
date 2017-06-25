@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MenuItem } from '../menu.model';
-import { OrderService } from '../services/order.service';
+import { MenuItem } from '../../menu.model';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'app-menu-item',
@@ -11,9 +11,9 @@ import { OrderService } from '../services/order.service';
 export class MenuItemComponent implements OnInit {
   menuItem: MenuItem
 
-  constructor(private orderService:  OrderService ) { }
+  constructor(private menuService:  MenuService ) { }
 
   ngOnInit() {
-    this.menuItem = this.orderService.getBurgerMenuItem();
+    this.menuItem = this.menuService.getBurgerMenuItem();
   }
 }

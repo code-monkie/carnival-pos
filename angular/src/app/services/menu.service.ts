@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { MenuItem, MenuItemImpl } from '../menu.model';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
-export class OrderService {
+export class MenuService {
   menuItems: MenuItem[];
 
-  constructor(private http: Http ) { 
+  constructor(private http: Http, private authService: AuthService ) { 
     this.buildMenuItems();
   }
 
@@ -15,7 +16,8 @@ export class OrderService {
   }
 
   persistMenuItems() {
-    this.http.put("https://carnival-pos.firebaseio.com/menu-item.json", this.menuItems).subscribe();
+    const token = this.authService.getIdToken();
+    this.http.put("https://carnival-pos.firebaseio.com/menu-item.json?auth=" + token, this.menuItems).subscribe();
   }
 
   buildMenuItems() {
