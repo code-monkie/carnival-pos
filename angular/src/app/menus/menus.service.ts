@@ -14,9 +14,9 @@ export class MenusService {
     return this.http.get("https://carnival-pos.firebaseio.com/menu-item.json");
   }
 
-  persistMenuItems() {
+  persistMenuItems(menuItems: MenuItem[]) {
     const token = this.authService.getIdToken();
-    this.http.put("https://carnival-pos.firebaseio.com/menu-item.json?auth=" + token, this.menuItems).subscribe();
+    this.http.put("https://carnival-pos.firebaseio.com/menu-item.json?auth=" + token, menuItems).subscribe();
   }
 
   buildMenuItems() {

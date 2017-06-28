@@ -9,10 +9,11 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth-guard';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
-import { CurrentOrderComponent } from './current-order/current-order.component';
+import { CurrentOrderComponent } from './orders/current-order/current-order.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LockedComponentComponent } from './locked-component/locked-component.component';
 
+import { OrderService } from "./orders/order.service";
 import { MenusService } from './menus/menus.service';
 import { AuthService } from './auth/auth.service';
 import { StoryComponent } from './story/story.component';
@@ -33,7 +34,7 @@ import { StoryComponent } from './story/story.component';
     AppRoutingModule,
     AuthModule
   ],
-  providers: [AuthService, MenusService, AuthGuard],
+  providers: [AuthService, MenusService, AuthGuard, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
