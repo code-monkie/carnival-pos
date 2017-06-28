@@ -6,17 +6,17 @@
     <a class="navbar-brand" routerLink="/"><img src="../../assets/logo.png" class="img-fluid"/></a>
    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link hidden-sm-down" routerLink="/menu">MENU</a>
-        <a class="nav-link" routerLink="/order">ORDER</a>
+        <a class="nav-link" routerLink="/menu">PLACE AN ORDER</a>
+        <a class="nav-link" routerLink="/story">SAM'S STORY</a>
         <!--a class="nav-link" routerLink="/locked">Locked</a-->
         <ng-template [ngIf]="authService.isAuthenticated()">
-          <li class="nav-link" (click)="saveMenu()">SAVE MENU</li>
+          <a class="nav-link" style="cursor: pointer" (click)="saveMenu()">EDIT MENU</a>
         </ng-template>
       </div>
       <div class="navbar-nav ml-auto">
         <ng-template [ngIf]="!authService.isAuthenticated()">
-          <li class="nav-link"><a routerLink="/signin">LOGIN</a></li>
-          <li class="nav-link"><a routerLink="/register">REGISTER</a></li>
+          <a class="nav-link" routerLink="/signin">LOGIN</a>
+          <a class="nav-link" routerLink="/register">REGISTER</a>
         </ng-template>
         <ng-template [ngIf]="authService.isAuthenticated()">
           <li class="nav-link"><a style="cursor: pointer" (click)="logout()">LOGOUT</a></li>

@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-import { MenusModule } from './menus/menus.module';
 import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,6 +15,7 @@ import { LockedComponentComponent } from './locked-component/locked-component.co
 
 import { MenusService } from './menus/menus.service';
 import { AuthService } from './auth/auth.service';
+import { StoryComponent } from './story/story.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +25,12 @@ import { AuthService } from './auth/auth.service';
     DashboardComponent,
     NavbarComponent,
     LockedComponentComponent,
+    StoryComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    MenusModule,
     AuthModule
   ],
   providers: [AuthService, MenusService, AuthGuard],
