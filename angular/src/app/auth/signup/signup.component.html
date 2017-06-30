@@ -1,19 +1,21 @@
 <section id="signup">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-10 col-md-6 offset-sm-1 offset-md-3">
-        <h1>Register as a new user!</h1>
-        <form (ngSubmit)="onSignup(f)" #f="ngForm">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" ngModel  email class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" ngModel class="form-control">
-          </div>
-          <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Sign Up</button>
-        </form>
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <h1 class="m-4">Register!</h1>
+          <form (ngSubmit)="onSignin(f)" #f="ngForm">
+            <div class="form-group mx-4">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" ngModel class="form-control">
+            </div>
+            <div class="form-group mx-4">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" ngModel class="form-control">
+            </div>
+            <button class="btn btn-primary m-4" type="submit" [disabled]="!f.valid">Register</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
