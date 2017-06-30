@@ -26,7 +26,8 @@ export class CurrentOrderComponent implements OnInit {
     this.currentOrder = {
     orderedItems: [],
     customerName: "Test",
-    isClown: false
+    isClown: false,
+    total: 0
     };
   }
 
@@ -38,5 +39,7 @@ export class CurrentOrderComponent implements OnInit {
       description: "",
       extras: []
     });
+
+    this.currentOrder.total += menuItem.price;
   }
 }
