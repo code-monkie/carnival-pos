@@ -13,7 +13,7 @@ import { CurrentOrderComponent } from './orders/current-order/current-order.comp
 import { NavbarComponent } from './navbar/navbar.component';
 import { LockedComponentComponent } from './locked-component/locked-component.component';
 
-import { OrderService } from "./orders/order.service";
+import { OrdersService } from "./orders/orders.service";
 import { MenusService } from './menus/menus.service';
 import { AuthService } from './auth/auth.service';
 import { StoryComponent } from './story/story.component';
@@ -34,7 +34,7 @@ import { StoryComponent } from './story/story.component';
     AppRoutingModule,
     AuthModule
   ],
-  providers: [AuthService, MenusService, AuthGuard, OrderService],
+  providers: [AuthService, MenusService, AuthGuard, OrdersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

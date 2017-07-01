@@ -4,7 +4,7 @@ import { AuthService } from '../auth/auth.service';
 import { Order } from "./orders.model";
 
 @Injectable()
-export class OrderService {
+export class OrdersService {
 
   constructor(private http: Http, private authService: AuthService ) { 
   }
@@ -14,8 +14,7 @@ export class OrderService {
   }
 
   addOrders(order: Order) {
-    const token = this.authService.getIdToken();
-    this.http.patch("https://carnival-pos.firebaseio.com/orders.json?auth=" + token, order).subscribe();
+    return this.http.post("https://carnival-pos.firebaseio.com/orders.json", order);
   }
 
   persistOrders(orders: Order[]) {

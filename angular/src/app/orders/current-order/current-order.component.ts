@@ -3,6 +3,7 @@ import { Response } from '@angular/http';
 
 import { MenuItem } from '../../menus/menus.model';
 import { Order } from '../orders.model';
+import { OrdersService} from '../orders.service'
 
 import { MenusService } from '../../menus/menus.service';
 
@@ -15,7 +16,7 @@ export class CurrentOrderComponent implements OnInit {
   currentOrder: Order
   menuItems: MenuItem[];
 
-  constructor(private menuService: MenusService ) { }
+  constructor(private menuService: MenusService, private ordersService: OrdersService ) { }
 
   ngOnInit() {
     this.menuService.getMenuItems().subscribe(
@@ -23,12 +24,8 @@ export class CurrentOrderComponent implements OnInit {
         this.menuItems = response.json();
       }
     );
-    this.currentOrder = {
-    orderedItems: [],
-    customerName: "Test",
-    isClown: false,
-    total: 0
-    };
+
+    this.resetCurrentOrder();
   }
 
   addOrder(menuItem: MenuItem) {
@@ -41,5 +38,22 @@ export class CurrentOrderComponent implements OnInit {
     });
 
     this.currentOrder.total += menuItem.price;
+  }
+
+  submitOrder() {
+    this.ordersService.addOrders(this.currentOrder).subscribe(
+      (response: Response) => {
+        this.resetCurrentOrder()
+      }
+    );
+  }
+
+  private resetCurrentOrder() {
+    this.currentOrder = {
+    orderedItems: [],
+    customerName: "Test",
+    isClown: false,
+    total: 0
+    };
   }
 }
