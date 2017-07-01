@@ -12,6 +12,7 @@
         <!--a class="nav-link" routerLink="/locked">Locked</a-->
         <ng-template [ngIf]="authService.isAuthenticated()">
           <a class="nav-link" style="cursor: pointer" (click)="saveMenu()">EDIT MENU</a>
+          <a class="nav-link" routerLink="/transactions">TRANSACTION HISTORY</a>
         </ng-template>
       </div>
       <div class="navbar-nav ml-auto">

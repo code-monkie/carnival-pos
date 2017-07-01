@@ -10,7 +10,8 @@ export class OrdersService {
   }
 
   getOrders() {
-    return this.http.get("https://carnival-pos.firebaseio.com/orders.json");
+    const token = this.authService.getIdToken();
+    return this.http.get("https://carnival-pos.firebaseio.com/orders.json?auth=" + token);
   }
 
   addOrders(order: Order) {

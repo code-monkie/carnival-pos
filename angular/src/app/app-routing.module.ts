@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders } from  '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TransactionHistoryComponent } from './orders/transaction-history/transaction-history.component';
 import { StoryComponent } from './story/story.component';
 import { CurrentOrderComponent } from './orders/current-order/current-order.component';
 import { LockedComponentComponent } from './locked-component/locked-component.component';
@@ -13,6 +14,7 @@ const appRoutes : Routes = [
   { path: "menu", loadChildren: "./menus/menus.module#MenusModule"},
   { path: "story", component: StoryComponent},
   { path: "order", component: CurrentOrderComponent},
+  { path: "transactions", component: TransactionHistoryComponent},
   { path: "locked", component:LockedComponentComponent, canActivate: [AuthGuard]},
 ];
 

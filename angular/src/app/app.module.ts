@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth-guard';
-import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import { TransactionHistoryComponent } from './orders/transaction-history/transaction-history.component';
 import { CurrentOrderComponent } from './orders/current-order/current-order.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LockedComponentComponent } from './locked-component/locked-component.component';

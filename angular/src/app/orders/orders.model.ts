@@ -7,6 +7,11 @@ export interface Order {
     total: number
 }
 
+export interface OrderHistory {
+  id: Object,
+  order: Order
+}
+
 export class OrderImpl implements Order {
 
   constructor(public orderedItems: MenuItem[], public customerName: string, public isClown: boolean, public total: number) {
