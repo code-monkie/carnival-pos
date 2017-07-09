@@ -1,15 +1,16 @@
 import { MenuItem } from "../menus/menus.model";
 
 export interface Order {
-    orderedItems: MenuItem[];
-    customerName: string;
-    isClown: boolean;
+    orderedItems: MenuItem[],
+    customerName: string,
+    isClown: boolean,
     total: number
 }
 
 export interface OrderHistory {
   id: Object,
-  order: Order
+  order: Order,
+  processed: boolean
 }
 
 export class OrderImpl implements Order {

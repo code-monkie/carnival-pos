@@ -17,6 +17,7 @@ import { OrdersService } from "./orders/orders.service";
 import { MenusService } from './menus/menus.service';
 import { AuthService } from './auth/auth.service';
 import { StoryComponent } from './story/story.component';
+import { ProcessOrdersComponent } from './orders/process-orders/process-orders.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { StoryComponent } from './story/story.component';
     NavbarComponent,
     LockedComponentComponent,
     StoryComponent,
+    ProcessOrdersComponent,
   ],
   imports: [
     BrowserModule,

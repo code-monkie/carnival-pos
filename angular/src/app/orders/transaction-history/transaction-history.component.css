@@ -2,3 +2,8 @@
 #transaction-history {
     padding-top: 5rem;
 }
+
+#transaction-history .card {
+ border: 1px solid black;
+ max-width: 40%;
+}

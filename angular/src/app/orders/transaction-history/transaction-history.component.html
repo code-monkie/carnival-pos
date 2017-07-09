@@ -1,15 +1,27 @@
 <section id="transaction-history">
   <div class="container">
     <div *ngIf="orderHistories != null">
-      <div *ngFor="let orderHistory of orderHistories"  class="card">
-        <h5> {{orderHistory.customerName | uppercase}} </h5>
-        <p> {{orderHistory.total / 100 | currency: 'USD': true}} </p>
+      <div *ngFor="let orderHistory of orderHistories"  class="card m-4 p-4">
+        <h2> {{orderHistory.customerName | uppercase}} </h2>
+        <h4 class="text-success">Total: {{orderHistory.total / 100 | currency: 'USD': true}} </h4>
         <div *ngFor="let menuItem of orderHistory.orderedItems">
-          <p> {{menuItem.name | uppercase}} </p>
-          <p> {{menuItem.price / 100 | currency: 'USD': true}} </p>
+           <div class="row">
+              <div class="col-md-3">
+                 {{menuItem.name | uppercase}}
+              </div>
+              <div class="col-md-3 text-muted">
+                  {{menuItem.price / 100 | currency: 'USD': true}}
+              </div>
+            </div>
           <div class="text-muted ml-4" *ngFor="let extra of menuItem.extras">
-            <p> {{menuItem.name | uppercase}} </p>
-            <p> {{menuItem.price / 100 | currency: 'USD': true}} </p>
+            <div class="row">
+              <div class="col-md-4">
+                 {{menuItem.name | uppercase}}
+              </div>
+              <div class="col-md-4">
+                  {{menuItem.price / 100 | currency: 'USD': true}}
+              </div>
+            </div>
           </div>
         </div>  
       </div>
