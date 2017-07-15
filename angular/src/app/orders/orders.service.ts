@@ -17,13 +17,11 @@ export class OrdersService {
   }
 
   addOrders(order: Order) {
-    return this.http.post("https://carnival-pos.firebaseio.com/orders.json", order);
+    const database = firebase.database();
+    const token = this.authService.getIdToken();
+    return database.ref("orders/" + order.name).push(order);
   }
 
-  // persistOrders(orders: Order[]) {
-  //   const token = this.authService.getIdToken();
-  //   this.http.put("https://carnival-pos.firebaseio.com/orders.json?auth=" + token, orders).subscribe();
-  // }
   rejecOrder(order: Order) {
     const database = firebase.database();
     const token = this.authService.getIdToken();

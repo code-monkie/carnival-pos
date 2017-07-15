@@ -2,7 +2,7 @@
   <div class="container">
     <div *ngIf="orderHistories != null && orderHistories.length >= 0">
       <div *ngFor="let orderHistory of orderHistories">
-        <div class="card p-5" [@reject-triger]=>
+        <div class="card p-5">
           <button class="btn btn-success alert alert-success text-left" (click)="acceptOrder(orderHistory)">
             <h1 class="text-center"> {{orderHistory.customerName | uppercase}} </h1>
             <h3>Total: {{orderHistory.total / 100 | currency: 'USD': true}} </h3>
