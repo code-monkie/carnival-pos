@@ -55,6 +55,7 @@ export class CurrentOrderComponent implements OnInit {
 
   private resetCurrentOrder() {
     this.currentOrder = {
+    name: "",
     orderedItems: [],
     customerName: "Test",
     isClown: false,

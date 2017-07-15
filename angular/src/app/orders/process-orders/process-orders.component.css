@@ -1,3 +1,19 @@
 #process {
-    padding: 5rem;
+    padding-top: 5rem;
+}
+
+.card {
+ border: 1px solid black;
+}
+
+@media print {
+        
+    ::first-letter{
+        margin: 0;
+        padding: 0;
+    }
+
+    .card {
+        max-width: 100%;
+    }
 }

@@ -6,7 +6,6 @@ import { TransactionHistoryComponent } from './orders/transaction-history/transa
 import { StoryComponent } from './story/story.component';
 import { CurrentOrderComponent } from './orders/current-order/current-order.component';
 import { ProcessOrdersComponent } from './orders/process-orders/process-orders.component';
-import { LockedComponentComponent } from './locked-component/locked-component.component';
 import { AuthGuard } from './auth/auth-guard';
 
 const appRoutes : Routes = [
@@ -17,7 +16,6 @@ const appRoutes : Routes = [
   { path: "order", component: CurrentOrderComponent},
   { path: "transactions", component: TransactionHistoryComponent},
   { path: "processing", component: ProcessOrdersComponent},
-  { path: "locked", component:LockedComponentComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

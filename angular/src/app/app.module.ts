@@ -11,7 +11,6 @@ import { AuthGuard } from './auth/auth-guard';
 import { TransactionHistoryComponent } from './orders/transaction-history/transaction-history.component';
 import { CurrentOrderComponent } from './orders/current-order/current-order.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { LockedComponentComponent } from './locked-component/locked-component.component';
 
 import { OrdersService } from "./orders/orders.service";
 import { MenusService } from './menus/menus.service';
@@ -26,7 +25,6 @@ import { ProcessOrdersComponent } from './orders/process-orders/process-orders.c
     CurrentOrderComponent,
     DashboardComponent,
     NavbarComponent,
-    LockedComponentComponent,
     StoryComponent,
     ProcessOrdersComponent,
   ],

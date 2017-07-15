@@ -19,7 +19,10 @@ export class TransactionHistoryComponent implements OnInit {
       (response: Response ) => {
         this.orderHistories = [];
         for (var name in response.json()) {
-          this.orderHistories.push(response.json()[name]);
+          let orderHistory = response.json()[name];
+          orderHistory.name = name;
+          orderHistory.processed = true;
+          this.orderHistories.push(orderHistory);
         }
       }
     );
