@@ -11,8 +11,12 @@
             <button class="btn btn-success"  [ngClass]="{disabled : currentOrder.orderedItems.length <= 0}" (click)="submitOrder()">Submit</button>
             <hr>
             <div *ngFor="let oItem of currentOrder.orderedItems; let i = index">
-                <h5> {{oItem.name | uppercase}} </h5>
-                <p> {{oItem.price / 100 | currency: 'USD': true}} </p>
+              <div class="d-flex">
+                <h5 class="p-2"> {{oItem.name | uppercase}} </h5>
+                <i class="fa fa-times ml-auto" aria-hidden="true" (click)="removeItemFromOrder(i)"></i>
+              </div>
+              <p class="p-2"> {{oItem.price / 100 | currency: 'USD': true}} </p>
+                
               <div *ngFor="let extra of currentOrder.orderedItems[i].extras">
                 <p> {{extra.name | uppercase}} </p>
                 <p> {{extra.price / 100 | currency: 'USD': true}} </p>

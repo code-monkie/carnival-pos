@@ -40,6 +40,11 @@ export class CurrentOrderComponent implements OnInit {
     this.currentOrder.total += menuItem.price;
   }
 
+  removeItemFromOrder(index: number) {
+    this.currentOrder.total = this.currentOrder.total - this.currentOrder.orderedItems[index].price;
+    this.currentOrder.orderedItems.splice(index, 1);
+  }
+
   submitOrder() {
     this.ordersService.addOrders(this.currentOrder).subscribe(
       (response: Response) => {
