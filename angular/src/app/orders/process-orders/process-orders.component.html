@@ -1,34 +1,36 @@
 <section id="process">
   <div class="container">
     <div *ngIf="orderHistories != null && orderHistories.length >= 0">
-      <div *ngFor="let orderHistory of orderHistories"  class="card p-5">
-        <button class="btn btn-success alert alert-success text-left" (click)="acceptOrder(orderHistory)">
-          <h1 class="text-center"> {{orderHistory.customerName | uppercase}} </h1>
-          <h3>Total: {{orderHistory.total / 100 | currency: 'USD': true}} </h3>
-          <hr>
-          <div *ngFor="let menuItem of orderHistory.orderedItems">
-            <div class="row">
-                <div class="col-md-10">
-                  <h5>{{menuItem.name | uppercase}}</h5>
-                </div>
-                <div class="col-md-2">
-                    <h5>{{menuItem.price / 100 | currency: 'USD': true}}</h5>
-                </div>
-              </div>
-            <div class="text-muted ml-4" *ngFor="let extra of menuItem.extras">
+      <div *ngFor="let orderHistory of orderHistories">
+        <div class="card p-5" [@reject-triger]=>
+          <button class="btn btn-success alert alert-success text-left" (click)="acceptOrder(orderHistory)">
+            <h1 class="text-center"> {{orderHistory.customerName | uppercase}} </h1>
+            <h3>Total: {{orderHistory.total / 100 | currency: 'USD': true}} </h3>
+            <hr>
+            <div *ngFor="let menuItem of orderHistory.orderedItems">
               <div class="row">
-                <div class="col-md-10">
-                  <h5>{{menuItem.name | uppercase}}</h5>
+                  <div class="col-md-10">
+                    <h5>{{menuItem.name | uppercase}}</h5>
+                  </div>
+                  <div class="col-md-2">
+                      <h5>{{menuItem.price / 100 | currency: 'USD': true}}</h5>
+                  </div>
                 </div>
-                <div class="col-md-2 text-right">
-                  <h5>{{menuItem.price / 100 | currency: 'USD': true}}</h5>
+              <div class="text-muted ml-4" *ngFor="let extra of menuItem.extras">
+                <div class="row">
+                  <div class="col-md-10">
+                    <h5>{{menuItem.name | uppercase}}</h5>
+                  </div>
+                  <div class="col-md-2 text-right">
+                    <h5>{{menuItem.price / 100 | currency: 'USD': true}}</h5>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>  
-        </button>
+            </div>  
+          </button>
           <button class="btn btn-danger" (click)="rejectOrder(orderHistory)">Reject</button>
-       </div>
+        </div>
+      </div>
     </div>
     <div *ngIf="orderHistories == null || orderHistories.length == 0">
       <img src="../assets/people.png" />

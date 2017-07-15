@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,13 +27,14 @@ import { ProcessOrdersComponent } from './orders/process-orders/process-orders.c
     DashboardComponent,
     NavbarComponent,
     StoryComponent,
-    ProcessOrdersComponent,
+    ProcessOrdersComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthService, MenusService, AuthGuard, OrdersService],
   bootstrap: [AppComponent]
