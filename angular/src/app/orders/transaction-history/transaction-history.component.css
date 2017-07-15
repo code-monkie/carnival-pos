@@ -3,7 +3,19 @@
     padding-top: 5rem;
 }
 
-#transaction-history .card {
+.card {
  border: 1px solid black;
- max-width: 40%;
+ max-width: 60%;
+}
+
+@media print {
+        
+    ::first-letter{
+        margin: 0;
+        padding: 0;
+    }
+
+    .card {
+        max-width: 100%;
+    }
 }
