@@ -18,11 +18,9 @@ export class TransactionHistoryComponent implements OnInit {
     this.ordersService.getOrders().subscribe(
       (response: Response ) => {
         this.orderHistories = [];
-        console.log(response.json());
         for (var name in response.json()) {
           this.orderHistories.push(response.json()[name]);
         }
-        console.log(this.orderHistories);
       }
     );
   }
