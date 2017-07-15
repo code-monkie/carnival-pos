@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { OrdersService } from '../orders.service';
 import { Order } from '../orders.model';
-import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-transaction-history',

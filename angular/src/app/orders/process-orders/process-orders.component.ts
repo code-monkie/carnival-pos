@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { OrdersService } from '../orders.service';
 import { Order } from '../orders.model';
-import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-process-orders',

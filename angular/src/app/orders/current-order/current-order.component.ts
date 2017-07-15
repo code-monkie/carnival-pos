@@ -19,9 +19,10 @@ export class CurrentOrderComponent implements OnInit {
   constructor(private menuService: MenusService, private ordersService: OrdersService ) { }
 
   ngOnInit() {
-    this.menuService.getMenuItems().subscribe(
-      (response: Response) => {
-        this.menuItems = response.json();
+    this.menuService.getMenuItems().once("value").then(
+      (snapshot) => {
+        console.log(snapshot.val());
+        this.menuItems = snapshot.val();
       }
     );
 

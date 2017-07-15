@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { MenuItem, MenuItemImpl } from './menus.model';
 import { AuthService } from '../auth/auth.service';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class MenusService {
@@ -11,10 +12,13 @@ export class MenusService {
   }
 
   getMenuItems() {
-    return this.http.get("https://carnival-pos.firebaseio.com/menu-item.json");
+    const database = firebase.database();
+    return database.ref("menu-item/");
+    
   }
 
   persistMenuItems(menuItems: MenuItem[]) {
+    const database = firebase.database();
     const token = this.authService.getIdToken();
     this.http.put("https://carnival-pos.firebaseio.com/menu-item.json?auth=" + token, menuItems).subscribe();
   }
