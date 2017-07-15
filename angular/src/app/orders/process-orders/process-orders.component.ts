@@ -48,15 +48,16 @@ export class ProcessOrdersComponent implements OnInit {
   }
 
   refresh() {
-    this.ordersService.getOrders().subscribe(
-      (response: Response) => {
-        this.orderHistories = [];
-        for (var name in response.json()) {
-          let orderHistory = response.json()[name];
-          orderHistory.name = name;
-          orderHistory.processed = true;
-          this.orderHistories.push(orderHistory);
-        }
+    this.ordersService.getOrders().then(
+      (snapshot) => {
+        console.log(snapshot.val());
+         this.orderHistories = [];
+         for (var name in snapshot.val()) {
+            let orderHistory = snapshot.val()[name];
+            orderHistory.name = name;
+            orderHistory.processed = true;
+            this.orderHistories.push(orderHistory);
+         }
       }
     );
   }
