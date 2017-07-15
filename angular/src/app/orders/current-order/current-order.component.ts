@@ -46,7 +46,7 @@ export class CurrentOrderComponent implements OnInit {
   }
 
   submitOrder() {
-    this.ordersService.addOrders(this.currentOrder).then(
+    this.ordersService.addOrder(this.currentOrder).then(
       () => {
         this.resetCurrentOrder()
       }

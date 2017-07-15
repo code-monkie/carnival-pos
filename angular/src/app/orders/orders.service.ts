@@ -16,7 +16,7 @@ export class OrdersService {
     return this.http.get("https://carnival-pos.firebaseio.com/orders.json?auth=" + token);
   }
 
-  addOrders(order: Order) {
+  addOrder(order: Order) {
     const database = firebase.database();
     const token = this.authService.getIdToken();
     return database.ref("orders/" + order.name).push(order);
