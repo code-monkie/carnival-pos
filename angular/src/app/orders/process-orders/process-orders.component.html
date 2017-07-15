@@ -1,7 +1,7 @@
 <section id="process">
   <div class="container">
-    <div *ngIf="orderHistories != null && orderHistories.length >= 0">
-      <div *ngFor="let orderHistory of orderHistories">
+    <div *ngIf="orders != null && orders.length >= 0">
+      <div *ngFor="let orderHistory of orders">
         <div class="card p-5">
           <button class="btn btn-success alert alert-success text-left" (click)="acceptOrder(orderHistory)">
             <h1 class="text-center"> {{orderHistory.customerName | uppercase}} </h1>
@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="orderHistories == null || orderHistories.length == 0">
+    <div *ngIf="orders == null || orders.length == 0">
       <img src="../assets/people.png" />
     </div>
   </div>

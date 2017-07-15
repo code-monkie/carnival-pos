@@ -23,7 +23,7 @@ import { Response } from '@angular/http';
 
 export class ProcessOrdersComponent implements OnInit {
 
-  orderHistories: Order[];
+  orders: Order[];
 
   constructor(private ordersService: OrdersService) { }
 
@@ -48,16 +48,9 @@ export class ProcessOrdersComponent implements OnInit {
   }
 
   refresh() {
-    this.ordersService.getOrders().then(
+    this.ordersService.getAndListenToOrders().on("value", 
       (snapshot) => {
-        console.log(snapshot.val());
-         this.orderHistories = [];
-         for (var name in snapshot.val()) {
-            let orderHistory = snapshot.val()[name];
-            orderHistory.name = name;
-            orderHistory.processed = true;
-            this.orderHistories.push(orderHistory);
-         }
+        this.orders = this.ordersService.processOrderSnapshot(snapshot);
       }
     );
   }

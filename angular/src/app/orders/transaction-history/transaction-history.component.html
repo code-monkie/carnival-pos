@@ -1,7 +1,7 @@
 <section id="transaction-history">
   <div class="container">
-    <div *ngIf="orderHistories != null">
-      <div *ngFor="let orderHistory of orderHistories"  class="card m-4 p-4">
+    <div *ngIf="orders != null">
+      <div *ngFor="let orderHistory of orders"  class="card m-4 p-4">
         <h2> {{orderHistory.customerName | uppercase}} </h2>
         <h4 class="text-success">Total: {{orderHistory.total / 100 | currency: 'USD': true}} </h4>
         <div *ngFor="let menuItem of orderHistory.orderedItems">

@@ -10,7 +10,7 @@ import { Response } from '@angular/http';
   styleUrls: ['./transaction-history.component.css']
 })
 export class TransactionHistoryComponent implements OnInit {
-  orderHistories: Order[];
+  orders: Order[];
 
   constructor(private ordersService: OrdersService) { }
 
@@ -21,14 +21,7 @@ export class TransactionHistoryComponent implements OnInit {
   refresh() {
     this.ordersService.getOrders().then(
       (snapshot) => {
-        console.log(snapshot.val());
-         this.orderHistories = [];
-         for (var name in snapshot.val()) {
-            let orderHistory = snapshot.val()[name];
-            orderHistory.name = name;
-            orderHistory.processed = true;
-            this.orderHistories.push(orderHistory);
-         }
+        this.orders = this.ordersService.processOrderSnapshot(snapshot);
       }
     );
   }
