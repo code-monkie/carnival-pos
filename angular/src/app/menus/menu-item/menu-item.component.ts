@@ -8,7 +8,7 @@ import { MenuItem } from '../menus.model';
   styleUrls: ['./menu-item.component.css']
 })
 export class MenuItemComponent implements OnInit {
-  @Input() menuItem: MenuItem
+  @Input() menuItem = null as MenuItem
 
   constructor() { }
 

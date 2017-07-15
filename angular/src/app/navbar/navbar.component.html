@@ -8,14 +8,15 @@
       <div class="navbar-nav">
         <a class="nav-link" routerLink="/menu">MENU</a>
         <a class="nav-link" routerLink="/order">PLACE AN ORDER</a>
-        <a class="nav-link" routerLink="/story">SAM'S STORY</a>
         <!--a class="nav-link" routerLink="/locked">Locked</a-->
         <ng-template [ngIf]="authService.isAuthenticated()">
           <a class="nav-link" style="cursor: pointer" (click)="saveMenu()">EDIT MENU</a>
           <a class="nav-link" routerLink="/transactions">TRANSACTION HISTORY</a>
+          <a class="nav-link" routerLink="/processing">PROCESS ORDERS</a>
         </ng-template>
       </div>
       <div class="navbar-nav ml-auto">
+        <a class="nav-link" routerLink="/story">SAM'S STORY</a>
         <ng-template [ngIf]="!authService.isAuthenticated()">
           <a class="nav-link" routerLink="/signin">LOGIN</a>
           <a class="nav-link" routerLink="/register">REGISTER</a>

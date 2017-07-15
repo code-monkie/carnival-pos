@@ -6,7 +6,7 @@
         <h4 class="text-success">Total: {{orderHistory.total / 100 | currency: 'USD': true}} </h4>
         <div *ngFor="let menuItem of orderHistory.orderedItems">
            <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-6">
                  {{menuItem.name | uppercase}}
               </div>
               <div class="col-md-3 text-muted">

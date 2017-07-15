@@ -3,14 +3,14 @@ import { MenuItem } from "../menus/menus.model";
 export interface Order {
     orderedItems: MenuItem[],
     customerName: string,
-    isClown: boolean,
+    isClown?: boolean,
     total: number
 }
 
 export interface OrderHistory {
-  id: Object,
+  name: Object,
   order: Order,
-  processed: boolean
+  processed?: boolean
 }
 
 export class OrderImpl implements Order {
