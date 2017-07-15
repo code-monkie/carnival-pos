@@ -14,9 +14,9 @@ export class OrdersService {
     return firebase.database().ref('orders/').once('value');
   }
 
-  getAndListenToOrders(){
+  getAndListenToOrdersForProcessing(){
     const database = firebase.database();
-    return firebase.database().ref('orders/');
+    return firebase.database().ref('orders/').orderByChild("processed").equalTo(null);
   }
 
   addOrder(order: Order) {
