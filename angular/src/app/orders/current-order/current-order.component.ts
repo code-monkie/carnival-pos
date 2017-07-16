@@ -21,7 +21,6 @@ export class CurrentOrderComponent implements OnInit {
     this.menuService.getMenuItems().once("value").then(
       (snapshot) => {
         this.menuItems = snapshot.val();
-        console.log(this.menuItems);
       }
     );
 

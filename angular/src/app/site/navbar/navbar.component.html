@@ -6,7 +6,6 @@
     <a class="navbar-brand" routerLink="/"><img src="../../assets/logo.png" class="img-fluid"/></a>
    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" routerLink="/menu">MENU</a>
         <a class="nav-link" routerLink="/order">PLACE AN ORDER</a>
         <!--a class="nav-link" routerLink="/locked">Locked</a-->
         <ng-template [ngIf]="authService.isAuthenticated()">
@@ -16,6 +15,7 @@
         </ng-template>
       </div>
       <div class="navbar-nav ml-auto">
+        <a class="nav-link" routerLink="/menu">MENU</a>
         <a class="nav-link" routerLink="/story">SAM'S STORY</a>
         <ng-template [ngIf]="!authService.isAuthenticated()">
           <a class="nav-link" routerLink="/signin">LOGIN</a>
