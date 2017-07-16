@@ -15,26 +15,6 @@ export class ProcessOrdersComponent implements OnInit {
   constructor(private ordersService: OrdersService) { }
 
   public ngOnInit() {
-    this.refreshOrders();
-  }
-
-  public acceptOrder(order: Order) {
-    this.ordersService.acceptOrder(order).then(
-      ()=>{
-        this.refreshOrders();
-      }
-    );
-  }
-
-  public rejectOrder(order: Order) {
-    this.ordersService.rejecOrder(order).then(
-      ()=>{
-        this.refreshOrders();
-      }
-    );
-  }
-
-  private refreshOrders() {
     this.ordersService.getAndListenToOrdersForProcessing().on("value", 
       snapshot => {
         this.orders = this.ordersService.processOrderSnapshot(snapshot);

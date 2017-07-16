@@ -8,5 +8,5 @@ import { MenuItem } from '../menus.model';
   styleUrls: ['./menu-item.component.css']
 })
 export class MenuItemComponent {
-  @Input() menuItem = undefined as MenuItem
+  @Input() menuItem = undefined as MenuItem;
 }

@@ -2,34 +2,7 @@
   <div class="container">
     <div *ngIf="orders != undefined && orders.length >= 0">
       <div *ngFor="let order of orders">
-        <div class="card mb-5">
-          <button class="btn btn-success hand alert alert-success text-left" (click)="acceptOrder(order)">
-            <h1 class="text-center"> {{order.customerName | uppercase}} </h1>
-            <h3>Total: {{order.total / 100 | currency: 'USD': true}} </h3>
-            <hr>
-            <div *ngFor="let menuItem of order.orderedItems">
-              <div class="row">
-                  <div class="col-md-10">
-                    <h5>{{menuItem.name | uppercase}}</h5>
-                  </div>
-                  <div class="col-md-2">
-                      <h5>{{menuItem.price / 100 | currency: 'USD': true}}</h5>
-                  </div>
-                </div>
-              <div class="text-muted ml-4" *ngFor="let extra of menuItem.extras">
-                <div class="row">
-                  <div class="col-md-10">
-                    <h5>{{menuItem.name | uppercase}}</h5>
-                  </div>
-                  <div class="col-md-2 text-right">
-                    <h5>{{menuItem.price / 100 | currency: 'USD': true}}</h5>
-                  </div>
-                </div>
-              </div>
-            </div>  
-          </button>
-          <button class="btn btn-danger hand" (click)="rejectOrder(order)">Reject</button>
-        </div>
+        <app-available-order [order]="order"></app-available-order>
       </div>
     </div>
     <div *ngIf="orders == undefined || orders.length == 0">
