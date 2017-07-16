@@ -5,4 +5,5 @@ export interface MenuItem {
   imageUrl: string;
   extras: MenuItem[];
   returnable?: boolean;
+  maxPerOrder?: number
 }

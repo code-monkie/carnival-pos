@@ -1,0 +1,88 @@
+[ {
+  "description" : "",
+  "imageUrl" : "https://www.eatdrinkdeals.com/home/wp-content/uploads/2016/04/auntie-anne-free-pretzel.jpg",
+  "maxPerOrder" : 2,
+  "name" : "Large Pretzel",
+  "price" : 250
+}, {
+  "description" : "",
+  "imageUrl" : "https://www.eatdrinkdeals.com/home/wp-content/uploads/2016/04/auntie-anne-free-pretzel.jpg",
+  "maxPerOrder" : 2,
+  "name" : "Small Pretzel",
+  "price" : 100
+}, {
+  "description" : "",
+  "extras" : [ {
+    "description" : "",
+    "imageUrl" : "",
+    "maxPerOrder" : 3,
+    "name" : "Onions",
+    "price" : 25
+  }, {
+    "description" : "",
+    "imageUrl" : "",
+    "maxPerOrder" : 3,
+    "name" : "Cheese",
+    "price" : 50
+  }, {
+    "description" : "",
+    "imageUrl" : "",
+    "maxPerOrder" : 3,
+    "name" : "Bacon",
+    "price" : 75
+  }, {
+    "description" : "",
+    "imageUrl" : "",
+    "maxPerOrder" : 3,
+    "name" : "Extra Paddy",
+    "price" : 100
+  } ],
+  "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg",
+  "name" : "Hamburger",
+  "price" : 200
+}, {
+  "description" : "",
+  "extras" : [ {
+    "description" : "",
+    "imageUrl" : "",
+    "maxPerOrder" : 2,
+    "name" : "Saurkraut",
+    "price" : 25
+  }, {
+    "description" : "",
+    "imageUrl" : "",
+    "maxPerOrder" : 2,
+    "name" : "Cheese",
+    "price" : 50
+  } ],
+  "imageUrl" : "https://assets3.thrillist.com/v1/image/1734124/size/tl-horizontal_main.jpg",
+  "name" : "Hot Dog",
+  "price" : 200
+}, {
+  "description" : "",
+  "imageUrl" : "https://video-images.vice.com/articles/591f1561ad135749526e9362/lede/1495210133342-GettyImages-157291939-1.jpeg?crop=1xw:0.8778409090909091xh;center,center",
+  "name" : "Nachos",
+  "price" : 250
+}, {
+  "description" : "",
+  "imageUrl" : "https://foodnessgracious.com/wp-content/uploads/2013/05/kettle-chips3-012.jpg",
+  "name" : "Chips",
+  "price" : 75,
+  "returnable" : true
+}, {
+  "description" : "",
+  "imageUrl" : "http://bigepizza.com/wp-content/uploads/2017/04/coke-fountain-drinks.png",
+  "name" : "Drinks",
+  "price" : 100,
+  "returnable" : true
+}, {
+  "description" : "",
+  "imageUrl" : "https://cdn3.bigcommerce.com/s-n6q2w/images/stencil/1280x1280/products/198/438/blue_raspberry_cotton_candy__89074.1472838388.jpg",
+  "name" : "Blue Raspberry Cotton Candy",
+  "price" : 150
+}, {
+  "description" : "",
+  "imageUrl" : "http://partypeoplecentral.com/wp-content/uploads/2015/09/111111.jpg",
+  "name" : "Red Strawberry Cotton Candy",
+  "price" : 150
+} ]

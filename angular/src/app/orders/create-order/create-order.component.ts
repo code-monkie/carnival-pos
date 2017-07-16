@@ -23,7 +23,7 @@ export class CreateOrderComponent implements OnInit {
       }
     );
 
-    this.resetCurrentOrder();
+    this.initializeCurrentOrder();
   }
 
   public addItemToOrder(menuItem: MenuItem) {
@@ -36,23 +36,34 @@ export class CreateOrderComponent implements OnInit {
       returnable: menuItem.returnable == undefined ? false : menuItem.returnable
     });
 
+    if (menuItem.maxPerOrder != undefined) {
+      menuItem.maxPerOrder -= 1;
+    }
+   
     this.currentOrder.total += menuItem.price;
   }
 
   public removeItemFromOrder(index: number) {
-    this.currentOrder.total = this.currentOrder.total - this.currentOrder.orderedItems[index].price;
+    let order = this.currentOrder.orderedItems[index];
+    this.currentOrder.total = this.currentOrder.total - order.price;
+    this.menuItems.forEach(menuItem => {
+      if (menuItem.name === order.name && menuItem.maxPerOrder != undefined) {
+        menuItem.maxPerOrder += 1;
+      }
+    });
+
     this.currentOrder.orderedItems.splice(index, 1);
   }
 
   public submitOrder() {
     this.ordersService.addOrder(this.currentOrder).then(
       () => {
-        this.resetCurrentOrder()
+        this.initializeCurrentOrder()
       }
     );
   }
 
-  private resetCurrentOrder() {
+  private initializeCurrentOrder() {
     this.currentOrder = {
       name: "",
       orderedItems: [],
