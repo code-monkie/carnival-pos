@@ -28,7 +28,7 @@ import { CanDeactivateGuard } from "./orders/create-order/can-deactivate.service
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [AuthService, 
     MenusService, 

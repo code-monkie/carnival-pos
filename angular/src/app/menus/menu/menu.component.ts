@@ -14,10 +14,14 @@ export class MenuComponent implements OnInit {
   constructor(private menuService: MenusService ) { }
 
   public ngOnInit() {
-    this.menuService.getMenuItems().once("value").then(
-      (snapshot) => {
-        this.menuItems = snapshot.val();
-      }
-    );
+    this.menuService.getMenuItems().once("value")
+      .then(
+        (snapshot) => {
+          this.menuItems = snapshot.val();
+        }
+      )
+      .catch (
+        error => console.log(error)
+      );
   }
 }

@@ -12,8 +12,9 @@ import { CanComponentDeactivate } from './can-deactivate.service';
   styleUrls: ['./create-order.component.css']
 })
 export class CreateOrderComponent implements OnInit, CanComponentDeactivate {
-  currentOrder: Order
+  currentOrder: Order;
   menuItems: MenuItem[];
+  loading: boolean = true;
 
   constructor(private menuService: MenusService, private ordersService: OrdersService ) { }
 
@@ -21,12 +22,27 @@ export class CreateOrderComponent implements OnInit, CanComponentDeactivate {
     this.menuService.getMenuItems().once("value").then(
       (snapshot) => {
         this.menuItems = snapshot.val();
+        this.loading = false;
       }
+    ).catch(
+      error => console.log(error)
     );
 
     this.initializeCurrentOrder();
   }
 
+  private initializeCurrentOrder() {
+    this.currentOrder = {
+      name: "",
+      orderedItems: [],
+      refundItems: [],
+      customerName: "Test",
+      isClown: false,
+      total: 0,
+      submittedTime: undefined,
+    };
+  }
+  
   public addItemToOrder(menuItem: MenuItem) {
     this.currentOrder.orderedItems.push({
       name: menuItem.name,
@@ -62,18 +78,6 @@ export class CreateOrderComponent implements OnInit, CanComponentDeactivate {
         this.initializeCurrentOrder()
       }
     );
-  }
-
-  private initializeCurrentOrder() {
-    this.currentOrder = {
-      name: "",
-      orderedItems: [],
-      refundItems: [],
-      customerName: "Test",
-      isClown: false,
-      total: 0,
-      submittedTime: undefined,
-    };
   }
 
   public canDeactivate() {

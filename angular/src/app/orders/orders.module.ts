@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LoadingModule } from 'ngx-loading';
 
 import { CreateOrderComponent } from './create-order/create-order.component';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
@@ -17,7 +18,8 @@ import { OrdersRoutingModule } from './orders-routing.module';
   ],
   imports: [
     CommonModule,
-    OrdersRoutingModule
+    OrdersRoutingModule,
+    LoadingModule
   ],
 })
 export class OrdersModule { }

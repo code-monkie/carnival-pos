@@ -18,15 +18,17 @@ export class TransactionHistoryComponent implements OnInit {
   }
 
   private refreshOrders() {
-    this.ordersService.getOrders().then(
+    this.ordersService.getOrders()
+    .then(
       snapshot => {
         this.orders = this.ordersService.processOrderSnapshot(snapshot);
-      }
-    );
+      })
+    .catch( error => {
+      console.log(error);
+    });
   }
 
   public removeItem(order: Order, index: number) {
     this.ordersService.processRefund(order, index);    
   }
-
 }
