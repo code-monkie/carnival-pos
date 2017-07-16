@@ -20,7 +20,6 @@ export class CurrentOrderComponent implements OnInit {
   ngOnInit() {
     this.menuService.getMenuItems().once("value").then(
       (snapshot) => {
-        console.log(snapshot.val());
         this.menuItems = snapshot.val();
       }
     );
@@ -55,12 +54,13 @@ export class CurrentOrderComponent implements OnInit {
 
   private resetCurrentOrder() {
     this.currentOrder = {
-    name: "",
-    orderedItems: [],
-    refundItems: [],
-    customerName: "Test",
-    isClown: false,
-    total: 0
+      name: "",
+      orderedItems: [],
+      refundItems: [],
+      customerName: "Test",
+      isClown: false,
+      total: 0,
+      submittedTime: null
     };
   }
 }

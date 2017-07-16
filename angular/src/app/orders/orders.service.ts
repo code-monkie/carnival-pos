@@ -20,6 +20,8 @@ export class OrdersService {
   }
 
   addOrder(order: Order) {
+    let date = new Date();
+    order.submittedTime = date.toJSON();
     return this.database.ref("orders/" + order.name).push(order);
   }
 
@@ -41,7 +43,6 @@ export class OrdersService {
     order.refundItems.push(order.orderedItems[menuIndex]);
     order.orderedItems.splice(menuIndex, 1);
 
-    console.log(order);
     this.database.ref("orders/" + order.name).update(order).then();
   }
 

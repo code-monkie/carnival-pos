@@ -6,6 +6,7 @@ export interface Order {
     refundItems: MenuItem[],
     customerName: string,
     isClown?: boolean,
-    total: number
-    processed?: boolean
+    total: number,
+    processed?: boolean,
+    submittedTime: string
 }
