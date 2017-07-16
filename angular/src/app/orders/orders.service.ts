@@ -5,34 +5,31 @@ import * as firebase from 'firebase';
 
 @Injectable()
 export class OrdersService {
+  database: firebase.database.Database;
 
   constructor() { 
+    this.database = firebase.database();
   }
 
   getOrders() {
-    const database = firebase.database();
-    return firebase.database().ref('orders/').once('value');
+    return this.database.ref('orders/').once('value');
   }
 
   getAndListenToOrdersForProcessing(){
-    const database = firebase.database();
-    return firebase.database().ref('orders/').orderByChild("processed").equalTo(null);
+    return this.database.ref('orders/').orderByChild("processed").equalTo(null);
   }
 
   addOrder(order: Order) {
-    const database = firebase.database();
-    return database.ref("orders/" + order.name).push(order);
+    return this.database.ref("orders/" + order.name).push(order);
   }
 
   rejecOrder(order: Order) {
-    const database = firebase.database();
-    return database.ref("orders/" + order.name).remove();
+    return this.database.ref("orders/" + order.name).remove();
   }
 
   acceptOrder(order: Order) {
-    const database = firebase.database();
     order.processed = true;
-    return database.ref("orders/" + order.name).update(order);
+    return this.database.ref("orders/" + order.name).update(order);
   }
 
   processOrderSnapshot(snapshot) {

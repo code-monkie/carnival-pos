@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 
 import { MenuItem } from '../../menus/menus.model';
 import { Order } from '../orders.model';

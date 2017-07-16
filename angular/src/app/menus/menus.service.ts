@@ -1,26 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
 import { MenuItem, MenuItemImpl } from './menus.model';
-import { AuthService } from '../auth/auth.service';
 import * as firebase from 'firebase';
 
 @Injectable()
 export class MenusService {
   menuItems: MenuItem[];
+  database: firebase.database.Database;
 
-  constructor(private http: Http, private authService: AuthService ) { 
+  constructor() { 
+    this.database = firebase.database();
   }
 
   getMenuItems() {
-    const database = firebase.database();
-    return database.ref("menu-item/");
+    return this.database.ref("menu-item/");
     
   }
 
   persistMenuItems(menuItems: MenuItem[]) {
-    const database = firebase.database();
-    const token = this.authService.getIdToken();
-    this.http.put("https://carnival-pos.firebaseio.com/menu-item.json?auth=" + token, menuItems).subscribe();
+    this.database.ref("menu-item").set(menuItems).then();
   }
 
   buildMenuItems() {
