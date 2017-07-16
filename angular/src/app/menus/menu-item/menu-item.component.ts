@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { MenuItem } from '../menus.model';
 
@@ -7,11 +7,6 @@ import { MenuItem } from '../menus.model';
   templateUrl: './menu-item.component.html',
   styleUrls: ['./menu-item.component.css']
 })
-export class MenuItemComponent implements OnInit {
+export class MenuItemComponent {
   @Input() menuItem = undefined as MenuItem
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 }

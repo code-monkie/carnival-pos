@@ -34,7 +34,11 @@ import { ProcessOrdersComponent } from './orders/process-orders/process-orders.c
     AuthModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthService, MenusService, AuthGuard, OrdersService],
+  providers: [AuthService, 
+    MenusService, 
+    AuthGuard, 
+    OrdersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

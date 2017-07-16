@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 
 import { MenuItem } from '../menus.model';
 import { MenusService } from '../menus.service';
@@ -14,7 +13,7 @@ export class MenuComponent implements OnInit {
 
   constructor(private menuService: MenusService ) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.menuService.getMenuItems().once("value").then(
       (snapshot) => {
         this.menuItems = snapshot.val();

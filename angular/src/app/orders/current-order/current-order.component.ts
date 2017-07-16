@@ -17,7 +17,7 @@ export class CurrentOrderComponent implements OnInit {
 
   constructor(private menuService: MenusService, private ordersService: OrdersService ) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.menuService.getMenuItems().once("value").then(
       (snapshot) => {
         this.menuItems = snapshot.val();
@@ -27,7 +27,7 @@ export class CurrentOrderComponent implements OnInit {
     this.resetCurrentOrder();
   }
 
-  addItemToOrder(menuItem: MenuItem) {
+  public addItemToOrder(menuItem: MenuItem) {
     this.currentOrder.orderedItems.push({
       name: menuItem.name,
       price: menuItem.price,
@@ -40,12 +40,12 @@ export class CurrentOrderComponent implements OnInit {
     this.currentOrder.total += menuItem.price;
   }
 
-  removeItemFromOrder(index: number) {
+  public removeItemFromOrder(index: number) {
     this.currentOrder.total = this.currentOrder.total - this.currentOrder.orderedItems[index].price;
     this.currentOrder.orderedItems.splice(index, 1);
   }
 
-  submitOrder() {
+  public submitOrder() {
     this.ordersService.addOrder(this.currentOrder).then(
       () => {
         this.resetCurrentOrder()

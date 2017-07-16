@@ -13,11 +13,11 @@ export class TransactionHistoryComponent implements OnInit {
 
   constructor(private ordersService: OrdersService) { }
 
-  ngOnInit() {
-    this.refresh();
+  public ngOnInit() {
+    this.refreshOrders();
   }
 
-  refresh() {
+  private refreshOrders() {
     this.ordersService.getOrders().then(
       snapshot => {
         this.orders = this.ordersService.processOrderSnapshot(snapshot);
@@ -25,7 +25,7 @@ export class TransactionHistoryComponent implements OnInit {
     );
   }
 
-  removeItem(order: Order, index: number) {
+  public removeItem(order: Order, index: number) {
     this.ordersService.processRefund(order, index);    
   }
 

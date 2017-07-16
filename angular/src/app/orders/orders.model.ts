@@ -2,11 +2,11 @@ import { MenuItem } from "../menus/menus.model";
 
 export interface Order {
     name: Object,
+    customerName: string,
+    total: number,
     orderedItems: MenuItem[],
     refundItems: MenuItem[],
-    customerName: string,
     isClown?: boolean,
-    total: number,
-    processed?: boolean,
     submittedTime: string
+    processed?: boolean,
 }

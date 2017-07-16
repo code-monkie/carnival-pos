@@ -7,9 +7,7 @@
    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" routerLink="/order">PLACE AN ORDER</a>
-        <!--a class="nav-link" routerLink="/locked">Locked</a-->
-        <ng-template [ngIf]="authService.isAuthenticated()">
-          <!-- <a class="nav-link" style="cursor: pointer" (click)="saveMenu()">EDIT MENU</a> -->
+        <ng-template [ngIf]="isAuthenticated()">
           <a class="nav-link" routerLink="/transactions">TRANSACTION HISTORY</a>
           <a class="nav-link" routerLink="/processing">PROCESS ORDERS</a>
         </ng-template>
@@ -17,12 +15,12 @@
       <div class="navbar-nav ml-auto">
         <a class="nav-link" routerLink="/menu">MENU</a>
         <a class="nav-link" routerLink="/story">SAM'S STORY</a>
-        <ng-template [ngIf]="!authService.isAuthenticated()">
+        <ng-template [ngIf]="!isAuthenticated()">
           <a class="nav-link" routerLink="/signin">LOGIN</a>
           <a class="nav-link" routerLink="/register">REGISTER</a>
         </ng-template>
-        <ng-template [ngIf]="authService.isAuthenticated()">
-          <li class="nav-link"><a style="cursor: pointer" (click)="logout()">LOGOUT</a></li>
+        <ng-template [ngIf]="isAuthenticated()">
+          <li class="nav-link"><a class="hand" (click)="logout()">LOGOUT</a></li>
         </ng-template>
       </div>
     </div>

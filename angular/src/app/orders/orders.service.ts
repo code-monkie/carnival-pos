@@ -11,30 +11,30 @@ export class OrdersService {
     this.database = firebase.database();
   }
 
-  getOrders() {
+  public getOrders() {
     return this.database.ref('orders/').orderByChild("processed").equalTo(true).once('value');
   }
 
-  getAndListenToOrdersForProcessing(){
+  public getAndListenToOrdersForProcessing(){
     return this.database.ref('orders/').orderByChild("processed").equalTo(null);
   }
 
-  addOrder(order: Order) {
+  public addOrder(order: Order) {
     let date = new Date();
     order.submittedTime = date.toJSON();
     return this.database.ref("orders/" + order.name).push(order);
   }
 
-  rejecOrder(order: Order) {
+  public rejecOrder(order: Order) {
     return this.database.ref("orders/" + order.name).remove();
   }
 
-  acceptOrder(order: Order) {
+  public acceptOrder(order: Order) {
     order.processed = true;
     return this.database.ref("orders/" + order.name).update(order);
   }
 
-  processRefund(order: Order, menuIndex: number) {
+  public processRefund(order: Order, menuIndex: number) {
     order.total -= order.orderedItems[menuIndex].price;
 
     if (order.refundItems == undefined ){
@@ -46,7 +46,7 @@ export class OrdersService {
     this.database.ref("orders/" + order.name).update(order).then();
   }
 
-  processOrderSnapshot(snapshot) {
+  public processOrderSnapshot(snapshot) {
     let orders = [];
       for (var name in snapshot.val()) {
         let order = snapshot.val()[name];

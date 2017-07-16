@@ -1,3 +1,7 @@
 #dashboard {
     padding-top: 5rem;
 }
+
+#dashboard > div > button {
+    height: 10rem;
+}

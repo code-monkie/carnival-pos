@@ -3,7 +3,7 @@
     <div *ngIf="orders != undefined && orders.length >= 0">
       <div *ngFor="let order of orders">
         <div class="card mb-5">
-          <button class="btn btn-success alert alert-success text-left" (click)="acceptOrder(order)">
+          <button class="btn btn-success hand alert alert-success text-left" (click)="acceptOrder(order)">
             <h1 class="text-center"> {{order.customerName | uppercase}} </h1>
             <h3>Total: {{order.total / 100 | currency: 'USD': true}} </h3>
             <hr>
@@ -28,7 +28,7 @@
               </div>
             </div>  
           </button>
-          <button class="btn btn-danger" (click)="rejectOrder(order)">Reject</button>
+          <button class="btn btn-danger hand" (click)="rejectOrder(order)">Reject</button>
         </div>
       </div>
     </div>

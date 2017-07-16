@@ -1,23 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { OrdersService } from '../orders.service';
 import { Order } from '../orders.model';
 
 @Component({
   selector: 'app-process-orders',
   templateUrl: './process-orders.component.html',
-  styleUrls: ['./process-orders.component.css'],
-  animations: [
-    trigger("reject-trigger", [
-      state('initial', style({
-        transform: 'translateX(0px)'
-      })),
-      state('rejecting', style({
-        transform: 'translateX(100px)'
-      })),
-      transition("reject-trigger=> rejecting", animate(200))
-    ])
-  ]
+  styleUrls: ['./process-orders.component.css']
 })
 
 export class ProcessOrdersComponent implements OnInit {
@@ -26,27 +14,27 @@ export class ProcessOrdersComponent implements OnInit {
 
   constructor(private ordersService: OrdersService) { }
 
-  ngOnInit() {
-    this.refresh();
+  public ngOnInit() {
+    this.refreshOrders();
   }
 
-  acceptOrder(order: Order) {
+  public acceptOrder(order: Order) {
     this.ordersService.acceptOrder(order).then(
       ()=>{
-        this.refresh();
+        this.refreshOrders();
       }
     );
   }
 
-  rejectOrder(order: Order) {
+  public rejectOrder(order: Order) {
     this.ordersService.rejecOrder(order).then(
       ()=>{
-        this.refresh();
+        this.refreshOrders();
       }
     );
   }
 
-  refresh() {
+  private refreshOrders() {
     this.ordersService.getAndListenToOrdersForProcessing().on("value", 
       snapshot => {
         this.orders = this.ordersService.processOrderSnapshot(snapshot);
