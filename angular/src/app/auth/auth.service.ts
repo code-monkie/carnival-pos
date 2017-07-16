@@ -44,15 +44,11 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    return this.token != null;
+    return firebase.auth().currentUser != null;
   }
 
   initializeToken() {
     this.token = this.getToken();
-  }
-
-  getUser() {
-    return JSON.parse(localStorage.getItem('currentUser'));
   }
 
   getToken(): string {

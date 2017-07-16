@@ -9,7 +9,7 @@
             <div class="col-md-6">
               <button class="btn btn-link text-left" (click)="removeItem(order, i)">{{menuItem.name | uppercase}}</button>
             </div>
-            <div class="col-md-3 text-muted">
+            <div class="col-md-3">
               {{menuItem.price / 100 | currency: 'USD': true}}
             </div>
           </div>
@@ -31,7 +31,7 @@
             <div class="col-md-6">
               {{refundItem.name | uppercase}}
             </div>
-            <div class="col-md-3 text-muted">
+            <div class="col-md-3">
               {{refundItem.price / 100 | currency: 'USD': true}}
             </div>
           </div>
