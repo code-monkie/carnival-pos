@@ -29,7 +29,7 @@
       <div class="col-md-6">
         <div class="card p-4">
           <button (click)="addItemToOrder(menuItem)" [disabled]="menuItem.maxPerOrder < 1" class="btn btn-primary m-2" *ngFor="let menuItem of menuItems">
-              <p> {{menuItem.name | uppercase}} ({{menuItem.maxPerOrder}})</p>
+              <p> {{menuItem.name | uppercase}} <ng-template [ngIf]="menuItem.maxPerOrder">({{menuItem.maxPerOrder}})</ng-template></p>
               <p> {{menuItem.price / 100 | currency: 'USD': true}} </p>
             </button>
         </div>
