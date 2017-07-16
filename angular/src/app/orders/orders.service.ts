@@ -54,6 +54,9 @@ export class OrdersService {
         order.processed = true;
         orders.push(order);
     }
-    return orders;
+
+    return orders.sort(function(a,b) { 
+      return new Date(a.submittedTime).getTime() - new Date(b.submittedTime).getTime() 
+    });
   }
 }

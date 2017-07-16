@@ -2,7 +2,14 @@
   <div class="container">
     <div *ngIf="orders != null">
       <div *ngFor="let order of orders" class="card m-4 p-4">
-        <h2> {{order.customerName | uppercase}} </h2>
+        <div class="row">
+          <div class="col-sm-6">
+            <h2>{{order.customerName | uppercase}}</h2>
+          </div>
+          <div class="col-sm-6">
+            <h2 class="text-right"> {{order.submittedTime | date}} </h2>
+          </div>
+        </div>
         <h4 class="text-success">Total: {{order.total / 100 | currency: 'USD': true}} </h4>
         <div *ngFor="let menuItem of order.orderedItems; let i = index">
           <div class="row alert alert-success">
