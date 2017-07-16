@@ -14,13 +14,13 @@ export class AvailableOrderComponent {
   public constructor(private ordersService: OrdersService) { }
 
   public acceptOrder() {
-    this.ordersService.acceptOrder(this.order).catch(
+    this.ordersService.acceptOrder(this.order).then().catch(
       error => console.log(error)
     );
   }
 
   public rejectOrder() {
-    this.ordersService.rejecOrder(this.order).catch(
+    this.ordersService.rejecOrder(this.order).then().catch(
       error => console.log(error)
     );
   }
