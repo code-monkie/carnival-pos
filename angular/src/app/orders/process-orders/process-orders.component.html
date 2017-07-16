@@ -2,7 +2,7 @@
   <div class="container">
     <div *ngIf="orders != null && orders.length >= 0">
       <div *ngFor="let order of orders">
-        <div class="card">
+        <div class="card mb-5">
           <button class="btn btn-success alert alert-success text-left" (click)="acceptOrder(order)">
             <h1 class="text-center"> {{order.customerName | uppercase}} </h1>
             <h3>Total: {{order.total / 100 | currency: 'USD': true}} </h3>
