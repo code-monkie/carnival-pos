@@ -7,9 +7,10 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  constructor () {}
+  public constructor () {
+  }
 
-  ngOnInit(){
+  public ngOnInit(){
     firebase.initializeApp({
       apiKey: "AIzaSyA4KJ8l5W3C7qcTxbRBI13_HXqEv5iZHb8",
       authDomain: "carnival-pos.firebaseapp.com",

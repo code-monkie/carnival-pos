@@ -6,10 +6,10 @@
     <a class="navbar-brand" routerLink="/"><img src="../../assets/logo.png" class="img-fluid"/></a>
    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" routerLink="/order">PLACE AN ORDER</a>
+        <a class="nav-link" routerLink="/orders/create">PLACE AN ORDER</a>
         <ng-template [ngIf]="isAuthenticated()">
-          <a class="nav-link" routerLink="/transactions">TRANSACTION HISTORY</a>
-          <a class="nav-link" routerLink="/processing">PROCESS ORDERS</a>
+          <a class="nav-link" routerLink="/orders/transactions">TRANSACTION HISTORY</a>
+          <a class="nav-link" routerLink="/orders/processing">PROCESS ORDERS</a>
         </ng-template>
       </div>
       <div class="navbar-nav ml-auto">

@@ -10,11 +10,9 @@ import { StoryComponent } from './site/story/story.component';
 const appRoutes : Routes = [
   { path: "", component: DashboardComponent, pathMatch: 'full'},
   { path: "dashboard", component: DashboardComponent, pathMatch: 'full'},
-  { path: "order", component: CreateOrderComponent},
-  { path: "transactions", component: TransactionHistoryComponent},
-  { path: "processing", component: ProcessOrdersComponent},
-  { path: "menu", loadChildren: "./menus/menus.module#MenusModule"},
   { path: "story", component: StoryComponent},
+  { path: "orders",  loadChildren: "./orders/orders.module#OrdersModule"},
+  { path: "menu", loadChildren: "./menus/menus.module#MenusModule"},
 ];
 
 @NgModule({
