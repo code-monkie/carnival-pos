@@ -14,7 +14,7 @@
         <div *ngFor="let menuItem of order.orderedItems; let i = index">
           <div class="row alert alert-success">
             <div class="col-md-6">
-              <button class="btn btn-link text-left" (click)="removeItem(order, i)">{{menuItem.name | uppercase}}</button>
+              <button class="btn btn-link text-left" [disabled]="menuItem.returnable == false" (click)="removeItem(order, i)">{{menuItem.name | uppercase}}</button>
             </div>
             <div class="col-md-3">
               {{menuItem.price / 100 | currency: 'USD': true}}

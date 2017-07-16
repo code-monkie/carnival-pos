@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { OrdersService } from '../orders.service';
 import { Order } from '../orders.model';
-
+import { MenuItem } from '../../menus/menus.model';
 @Component({
   selector: 'app-transaction-history',
   templateUrl: './transaction-history.component.html',
@@ -28,4 +28,5 @@ export class TransactionHistoryComponent implements OnInit {
   removeItem(order: Order, index: number) {
     this.ordersService.processRefund(order, index);    
   }
+
 }

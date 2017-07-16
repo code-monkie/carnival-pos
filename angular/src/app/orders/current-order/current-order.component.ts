@@ -21,19 +21,21 @@ export class CurrentOrderComponent implements OnInit {
     this.menuService.getMenuItems().once("value").then(
       (snapshot) => {
         this.menuItems = snapshot.val();
+        console.log(this.menuItems);
       }
     );
 
     this.resetCurrentOrder();
   }
 
-  addOrder(menuItem: MenuItem) {
+  addItemToOrder(menuItem: MenuItem) {
     this.currentOrder.orderedItems.push({
       name: menuItem.name,
       price: menuItem.price,
       imageUrl: "",
       description: "",
-      extras: []
+      extras: [],
+      returnable: menuItem.returnable == null ? false : menuItem.returnable
     });
 
     this.currentOrder.total += menuItem.price;
@@ -60,7 +62,7 @@ export class CurrentOrderComponent implements OnInit {
       customerName: "Test",
       isClown: false,
       total: 0,
-      submittedTime: null
+      submittedTime: null,
     };
   }
 }

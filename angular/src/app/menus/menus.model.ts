@@ -4,6 +4,7 @@ export interface MenuItem {
   price: number;
   imageUrl: string;
   extras: MenuItem[];
+  returnable?: boolean;
 }
 
 export class MenuItemImpl implements MenuItem {
