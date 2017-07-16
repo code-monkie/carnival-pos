@@ -32,7 +32,7 @@
           </div>
         </div>
         <hr>
-        <h4 class="text-danger">Refunded Items</h4>
+        <h4 class="text-danger" *ngIf="order.refundItems != null && order.refundItems.length > 0">Refunded Items</h4>
         <div *ngFor="let refundItem of order.refundItems">
           <div class="row alert alert-danger">
             <div class="col-md-6">
