@@ -4,13 +4,14 @@ import { MenuItem } from '../../menus/menus.model';
 import { Order } from '../orders.model';
 import { OrdersService} from '../orders.service'
 import { MenusService } from '../../menus/menus.service';
+import { CanComponentDeactivate } from './can-deactivate.service';
 
 @Component({
   selector: 'app-create-order',
   templateUrl: './create-order.component.html',
   styleUrls: ['./create-order.component.css']
 })
-export class CreateOrderComponent implements OnInit {
+export class CreateOrderComponent implements OnInit, CanComponentDeactivate {
   currentOrder: Order
   menuItems: MenuItem[];
 
@@ -62,5 +63,12 @@ export class CreateOrderComponent implements OnInit {
       total: 0,
       submittedTime: undefined,
     };
+  }
+
+  public canDeactivate() {
+    if (this.currentOrder.orderedItems.length === 0) {
+      return true;
+    }
+    return window.confirm('Leave unfinished order?');
   }
 }

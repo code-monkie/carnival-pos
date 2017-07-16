@@ -15,6 +15,7 @@ import { StoryComponent } from './site/story/story.component';
 import { OrdersService } from "./orders/orders.service";
 import { MenusService } from './menus/menus.service';
 import { AuthService } from './auth/auth.service';
+import { CanDeactivateGuard } from "./orders/create-order/can-deactivate.service"
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthService } from './auth/auth.service';
   providers: [AuthService, 
     MenusService, 
     AuthGuard, 
-    OrdersService
+    OrdersService,
+    CanDeactivateGuard
   ],
   bootstrap: [AppComponent]
 })
