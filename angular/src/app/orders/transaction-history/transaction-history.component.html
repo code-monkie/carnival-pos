@@ -7,7 +7,7 @@
             <h2>{{order.customerName | uppercase}}</h2>
           </div>
           <div class="col-sm-6">
-            <h2 class="text-right"> {{order.submittedTime | date}} </h2>
+            <h2 class="text-right"> {{order.submittedTime | date:'medium'}} </h2>
           </div>
         </div>
         <h4 class="text-success">Total: {{order.total / 100 | currency: 'USD': true}} </h4>

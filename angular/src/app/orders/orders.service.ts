@@ -12,7 +12,7 @@ export class OrdersService {
   }
 
   getOrders() {
-    return this.database.ref('orders/').once('value');
+    return this.database.ref('orders/').orderByChild("processed").equalTo(true).once('value');
   }
 
   getAndListenToOrdersForProcessing(){
