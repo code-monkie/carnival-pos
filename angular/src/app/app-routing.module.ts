@@ -1,9 +1,9 @@
 import { NgModule, ModuleWithProviders } from  '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './site/dashboard/dashboard.component';
 import { TransactionHistoryComponent } from './orders/transaction-history/transaction-history.component';
-import { StoryComponent } from './story/story.component';
+import { StoryComponent } from './site/story/story.component';
 import { CurrentOrderComponent } from './orders/current-order/current-order.component';
 import { ProcessOrdersComponent } from './orders/process-orders/process-orders.component';
 import { AuthGuard } from './auth/auth-guard';
