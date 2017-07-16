@@ -3,15 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../../menus/menus.model';
 import { Order } from '../orders.model';
 import { OrdersService} from '../orders.service'
-
 import { MenusService } from '../../menus/menus.service';
 
 @Component({
-  selector: 'app-current-order',
-  templateUrl: './current-order.component.html',
-  styleUrls: ['./current-order.component.css']
+  selector: 'app-create-order',
+  templateUrl: './create-order.component.html',
+  styleUrls: ['./create-order.component.css']
 })
-export class CurrentOrderComponent implements OnInit {
+export class CreateOrderComponent implements OnInit {
   currentOrder: Order
   menuItems: MenuItem[];
 
