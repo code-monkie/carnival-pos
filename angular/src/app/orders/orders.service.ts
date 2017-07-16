@@ -32,13 +32,26 @@ export class OrdersService {
     return this.database.ref("orders/" + order.name).update(order);
   }
 
+  processRefund(order: Order, menuIndex: number) {
+    order.total -= order.orderedItems[menuIndex].price;
+
+    if (order.refundItems == null ){
+      order.refundItems = [];
+    }
+    order.refundItems.push(order.orderedItems[menuIndex]);
+    order.orderedItems.splice(menuIndex, 1);
+
+    console.log(order);
+    this.database.ref("orders/" + order.name).update(order).then();
+  }
+
   processOrderSnapshot(snapshot) {
     let orders = [];
       for (var name in snapshot.val()) {
-        let orderHistory = snapshot.val()[name];
-        orderHistory.name = name;
-        orderHistory.processed = true;
-        orders.push(orderHistory);
+        let order = snapshot.val()[name];
+        order.name = name;
+        order.processed = true;
+        orders.push(order);
     }
     return orders;
   }

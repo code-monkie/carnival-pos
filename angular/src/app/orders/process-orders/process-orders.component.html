@@ -1,13 +1,13 @@
 <section id="process">
   <div class="container">
     <div *ngIf="orders != null && orders.length >= 0">
-      <div *ngFor="let orderHistory of orders">
+      <div *ngFor="let order of orders">
         <div class="card">
-          <button class="btn btn-success alert alert-success text-left" (click)="acceptOrder(orderHistory)">
-            <h1 class="text-center"> {{orderHistory.customerName | uppercase}} </h1>
-            <h3>Total: {{orderHistory.total / 100 | currency: 'USD': true}} </h3>
+          <button class="btn btn-success alert alert-success text-left" (click)="acceptOrder(order)">
+            <h1 class="text-center"> {{order.customerName | uppercase}} </h1>
+            <h3>Total: {{order.total / 100 | currency: 'USD': true}} </h3>
             <hr>
-            <div *ngFor="let menuItem of orderHistory.orderedItems">
+            <div *ngFor="let menuItem of order.orderedItems">
               <div class="row">
                   <div class="col-md-10">
                     <h5>{{menuItem.name | uppercase}}</h5>
@@ -28,7 +28,7 @@
               </div>
             </div>  
           </button>
-          <button class="btn btn-danger" (click)="rejectOrder(orderHistory)">Reject</button>
+          <button class="btn btn-danger" (click)="rejectOrder(order)">Reject</button>
         </div>
       </div>
     </div>

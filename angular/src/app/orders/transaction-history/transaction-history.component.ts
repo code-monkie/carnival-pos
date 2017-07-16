@@ -24,4 +24,8 @@ export class TransactionHistoryComponent implements OnInit {
       }
     );
   }
+
+  removeItem(order: Order, index: number) {
+    this.ordersService.processRefund(order, index);    
+  }
 }

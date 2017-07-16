@@ -1,29 +1,41 @@
 <section id="transaction-history">
   <div class="container">
     <div *ngIf="orders != null">
-      <div *ngFor="let orderHistory of orders"  class="card m-4 p-4">
-        <h2> {{orderHistory.customerName | uppercase}} </h2>
-        <h4 class="text-success">Total: {{orderHistory.total / 100 | currency: 'USD': true}} </h4>
-        <div *ngFor="let menuItem of orderHistory.orderedItems">
-           <div class="row">
-              <div class="col-md-6">
-                 {{menuItem.name | uppercase}}
-              </div>
-              <div class="col-md-3 text-muted">
-                  {{menuItem.price / 100 | currency: 'USD': true}}
-              </div>
+      <div *ngFor="let order of orders" class="card m-4 p-4">
+        <h2> {{order.customerName | uppercase}} </h2>
+        <h4 class="text-success">Total: {{order.total / 100 | currency: 'USD': true}} </h4>
+        <div *ngFor="let menuItem of order.orderedItems; let i = index">
+          <div class="row alert alert-success">
+            <div class="col-md-6">
+              <button class="btn btn-link text-left" (click)="removeItem(order, i)">{{menuItem.name | uppercase}}</button>
             </div>
+            <div class="col-md-3 text-muted">
+              {{menuItem.price / 100 | currency: 'USD': true}}
+            </div>
+          </div>
           <div class="text-muted ml-4" *ngFor="let extra of menuItem.extras">
             <div class="row">
               <div class="col-md-4">
-                 {{menuItem.name | uppercase}}
+                {{menuItem.name | uppercase}}
               </div>
               <div class="col-md-4">
-                  {{menuItem.price / 100 | currency: 'USD': true}}
+                {{menuItem.price / 100 | currency: 'USD': true}}
               </div>
             </div>
           </div>
-        </div>  
+        </div>
+        <hr>
+        <h4 class="text-danger">Refunded Items</h4>
+        <div *ngFor="let refundItem of order.refundItems">
+          <div class="row alert alert-danger">
+            <div class="col-md-6">
+              {{refundItem.name | uppercase}}
+            </div>
+            <div class="col-md-3 text-muted">
+              {{refundItem.price / 100 | currency: 'USD': true}}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

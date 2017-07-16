@@ -57,6 +57,7 @@ export class CurrentOrderComponent implements OnInit {
     this.currentOrder = {
     name: "",
     orderedItems: [],
+    refundItems: [],
     customerName: "Test",
     isClown: false,
     total: 0
