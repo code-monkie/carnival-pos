@@ -18,7 +18,5 @@ export class AppComponent implements OnInit{
       authDomain: "carnival-pos.firebaseapp.com",
       databaseURL: "https://carnival-pos.firebaseio.com",
     });
-
-  this.authService.initializeToken();
   }
 }

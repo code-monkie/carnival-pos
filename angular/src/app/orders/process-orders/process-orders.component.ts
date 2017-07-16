@@ -48,7 +48,7 @@ export class ProcessOrdersComponent implements OnInit {
 
   refresh() {
     this.ordersService.getAndListenToOrdersForProcessing().on("value", 
-      (snapshot) => {
+      snapshot => {
         this.orders = this.ordersService.processOrderSnapshot(snapshot);
       }
     );
