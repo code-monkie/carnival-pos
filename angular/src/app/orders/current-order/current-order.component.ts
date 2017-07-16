@@ -34,7 +34,7 @@ export class CurrentOrderComponent implements OnInit {
       imageUrl: "",
       description: "",
       extras: [],
-      returnable: menuItem.returnable == null ? false : menuItem.returnable
+      returnable: menuItem.returnable == undefined ? false : menuItem.returnable
     });
 
     this.currentOrder.total += menuItem.price;
@@ -61,7 +61,7 @@ export class CurrentOrderComponent implements OnInit {
       customerName: "Test",
       isClown: false,
       total: 0,
-      submittedTime: null,
+      submittedTime: undefined,
     };
   }
 }

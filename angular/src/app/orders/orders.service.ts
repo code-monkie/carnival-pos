@@ -37,7 +37,7 @@ export class OrdersService {
   processRefund(order: Order, menuIndex: number) {
     order.total -= order.orderedItems[menuIndex].price;
 
-    if (order.refundItems == null ){
+    if (order.refundItems == undefined ){
       order.refundItems = [];
     }
     order.refundItems.push(order.orderedItems[menuIndex]);

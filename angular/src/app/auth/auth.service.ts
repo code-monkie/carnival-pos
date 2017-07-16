@@ -34,7 +34,7 @@ export class AuthService {
 
   logout() {
     firebase.auth().signOut();
-    this.token = null;
+    this.token = undefined;
   }
 
   getIdToken() {
@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    return firebase.auth().currentUser != null;
+    return firebase.auth().currentUser != undefined;
   }
 
   initializeToken() {
@@ -54,6 +54,6 @@ export class AuthService {
   getToken(): string {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     var token = currentUser && currentUser.token;
-    return token ? token : null;
+    return token ? token : undefined;
     }
 }
