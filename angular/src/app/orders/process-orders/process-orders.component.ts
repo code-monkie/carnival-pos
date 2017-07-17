@@ -15,7 +15,7 @@ export class ProcessOrdersComponent implements OnInit {
   constructor(public ordersService: OrdersService) { }
 
   public ngOnInit() {
-    this.ordersService.getAndListenToOrdersForProcessing().on("value", 
+    this.ordersService.getOrdersForProcessing().on("value", 
       snapshot => {
         this.orders = this.ordersService.processOrderSnapshot(snapshot);
       }

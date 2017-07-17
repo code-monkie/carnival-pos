@@ -72,11 +72,15 @@ export class CreateOrderComponent implements OnInit, CanComponentDeactivate {
 
   public submitOrder() {
     if (this.ordersService.isOpenForBusiness()){
-      this.ordersService.addOrder(this.currentOrder).then(
-        () => this.clearOrder()
-      ).catch (
-        error => console.log(error)
-      );
+      let name = window.prompt("Please enter a name for this order.");
+      if (name != null){
+        this.currentOrder.customerName = name;
+        this.ordersService.addOrder(this.currentOrder).then(
+          () => this.clearOrder()
+        ).catch (
+          error => console.log(error)
+        );
+      }
     } 
     else {
       window.alert("Sorry! The Cafe' is close!");

@@ -6,7 +6,7 @@
         <div class="card p-4">
           <h1>Current Order</h1>
           <div *ngIf="currentOrder">
-            <h4 class="text-muted ml-2">{{currentOrder.customerName}}</h4>
+            <!-- <h4 class="text-muted ml-2">{{currentOrder.customerName}}</h4> -->
             <h4 class="text-muted ml-2">{{this.currentOrder.total / 100 | currency: 'USD': true}}</h4>
             <button class="btn btn-success" [disabled]="currentOrder.orderedItems.length <= 0" (click)="submitOrder()">Submit</button>
             <button class="btn btn-danger" [disabled]="currentOrder.orderedItems.length <= 0" (click)="clearOrder()">Clear</button>

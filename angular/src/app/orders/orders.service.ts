@@ -32,10 +32,10 @@ export class OrdersService {
   }
 
   public getOrders() {
-    return this.database.ref('orders/').orderByChild("processed").equalTo(true).once('value');
+    return this.database.ref('orders/').orderByChild("processed").equalTo(true);
   }
 
-  public getAndListenToOrdersForProcessing(){
+  public getOrdersForProcessing(){
     return this.database.ref('orders/').orderByChild("processed").equalTo(null);
   }
 
@@ -51,7 +51,6 @@ export class OrdersService {
 
   public acceptOrder(order: Order) {
     order.processed = true;
-    console.log(firebase.auth().currentUser);
     return this.database.ref("orders/" + order.name).update(order);
   }
 

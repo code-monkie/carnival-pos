@@ -18,7 +18,7 @@ export class TransactionHistoryComponent implements OnInit {
   }
 
   private refreshOrders() {
-    this.ordersService.getOrders()
+    this.ordersService.getOrders().once('value')
     .then(
       snapshot => {
         this.orders = this.ordersService.processOrderSnapshot(snapshot);
