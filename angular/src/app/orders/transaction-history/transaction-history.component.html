@@ -7,34 +7,34 @@
             <h2>{{order.customerName | uppercase}}</h2>
           </div>
           <div class="col-sm-6">
-            <h2 class="text-right"> {{order.submittedTime | date:'medium'}} </h2>
+            <h2> {{order.submittedTime | date:'medium'}} </h2>
           </div>
         </div>
         <h4 class="text-success">Total: {{order.total / 100 | currency: 'USD': true}} </h4>
-        <div *ngFor="let menuItem of order.orderedItems; let i = index">
-          <div class="row alert alert-success">
+        <div *ngFor="let menuItem of order.orderedItems; let i = index" class="alert alert-success">
+          <div class="row">
             <div class="col-md-6">
-              <button class="btn btn-link text-left" [disabled]="menuItem.returnable == false" (click)="removeItem(order, i)">{{menuItem.name | uppercase}}</button>
+              <button class="btn btn-link" [disabled]="menuItem.returnable == false" (click)="removeItem(order, i)">{{menuItem.name | uppercase}}</button>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
               {{menuItem.price / 100 | currency: 'USD': true}}
             </div>
           </div>
-          <div class="text-muted ml-4" *ngFor="let extra of menuItem.extras">
+          <div *ngFor="let extra of menuItem.extras">
             <div class="row">
-              <div class="col-md-4">
-                {{menuItem.name | uppercase}}
+              <div class="col-md-6">
+                {{extra.name | uppercase}}
               </div>
-              <div class="col-md-4">
-                {{menuItem.price / 100 | currency: 'USD': true}}
+              <div class="col-md-6">
+                {{extra.price / 100 | currency: 'USD': true}}
               </div>
             </div>
           </div>
         </div>
         <hr>
         <h4 class="text-danger" *ngIf="order.refundItems != undefined && order.refundItems.length > 0">Refunded Items</h4>
-        <div *ngFor="let refundItem of order.refundItems">
-          <div class="row alert alert-danger">
+        <div *ngFor="let refundItem of order.refundItems" class="alert alert-danger">
+          <div class="row">
             <div class="col-md-6">
               {{refundItem.name | uppercase}}
             </div>

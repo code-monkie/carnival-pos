@@ -13,18 +13,11 @@
                 <h5>{{menuItem.price / 100 | currency: 'USD': true}}</h5>
             </div>
           </div>
-        <div class="text-muted ml-4" *ngFor="let extra of menuItem.extras">
-          <div class="row">
-            <div class="col-md-10">
-              <h5>{{menuItem.name | uppercase}}</h5>
-            </div>
-            <div class="col-md-2 text-right">
-              <h5>{{menuItem.price / 100 | currency: 'USD': true}}</h5>
-            </div>
-          </div>
+        <div class="px-5" *ngFor="let extra of menuItem.extras">
+            <h5>{{extra.name | uppercase}}</h5>
         </div>
       </div>  
     </button>
-    <button class="btn btn-danger hand" (click)="rejectOrder()" style="height:5rem;"><h1>NO CLOWNS SUCKA!</h1></button>
+    <button class="btn btn-danger hand" (click)="rejectOrder()" style="height:5rem;"><h1>NO CLOWNS</h1></button>
   </div>
 </section>

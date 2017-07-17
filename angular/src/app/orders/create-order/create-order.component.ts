@@ -36,9 +36,12 @@ export class CreateOrderComponent implements OnInit, CanComponentDeactivate {
   }
   
   public addItemToOrder(menuItem: MenuItem) {
+
+    
     this.currentOrder.orderedItems.push({
-      name: menuItem.name, price: menuItem.price, imageUrl: "", description: "", extras: [], 
-        returnable: menuItem.returnable == undefined ? false : menuItem.returnable
+      name: menuItem.name, price: menuItem.price, imageUrl: "", description: "", 
+        returnable: menuItem.returnable == undefined ? false : menuItem.returnable,
+        extras: this.isCombo(menuItem) ? menuItem.extras : []
     });
 
     if (menuItem.maxPerOrder != undefined) {
@@ -46,6 +49,10 @@ export class CreateOrderComponent implements OnInit, CanComponentDeactivate {
     }
    
     this.currentOrder.total += menuItem.price;
+  }
+
+  public isCombo(menuItem: MenuItem) {
+    return menuItem.name.indexOf('Combo') > 0;
   }
 
   public removeItemFromOrder(index: number) {
