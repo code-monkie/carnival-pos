@@ -10,3 +10,9 @@ export interface Order {
     submittedTime: string
     processed?: boolean,
 }
+
+export interface Combos{
+    name: Object,
+    comboItems: string [],
+    total: number
+}

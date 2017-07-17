@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Order } from "./orders.model";
+import { Combos } from "./orders.model";
 import * as firebase from 'firebase';
     
 
@@ -31,6 +32,7 @@ export class OrdersService {
 
   public acceptOrder(order: Order) {
     order.processed = true;
+    console.log(firebase.auth().currentUser);
     return this.database.ref("orders/" + order.name).update(order);
   }
 

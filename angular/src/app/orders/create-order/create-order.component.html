@@ -8,13 +8,13 @@
           <div *ngIf="currentOrder">
             <h4 class="text-muted ml-2">{{currentOrder.customerName}}</h4>
             <h4 class="text-muted ml-2">{{this.currentOrder.total / 100 | currency: 'USD': true}}</h4>
-            <h5 class="text-muted ml-2" *ngIf="currentOrder.isClown">No Clowns sucker!</h5>
             <button class="btn btn-success" [disabled]="currentOrder.orderedItems.length <= 0" (click)="submitOrder()">Submit</button>
+            <button class="btn btn-danger" [disabled]="currentOrder.orderedItems.length <= 0" (click)="clearOrder()">Clear</button>
             <hr>
             <div *ngFor="let orderedItem of currentOrder.orderedItems; let i = index" class="alert alert-info mt-3">
               <div class="d-flex">
                 <h5 class="p-1"> {{orderedItem.name | uppercase}} </h5>
-                <p class="p-1"> {{orderedItem.price / 100 | currency: 'USD': true}} </p>
+                <p class="p-1 text-right"> <strong>{{orderedItem.price / 100 | currency: 'USD': true}}</strong></p>
                 <i class="fa fa-times ml-auto" aria-hidden="true" (click)="removeItemFromOrder(i)"></i>
               </div>
               <div *ngFor="let extra of currentOrder.orderedItems[i].extras">
@@ -27,6 +27,16 @@
       </div>
       <div class="col-md-6">
         <div class="card p-4">
+          <button (click)="addBurgerCombo()" class="btn btn-success m-2">
+            <h5>Hamburger Combo</h5>
+            (Hamburger, Chips, Drink)<br>
+            {{250 | currency: 'USD': true}}
+          </button>
+          <button (click)="addHotdogCombo()" class="btn btn-success m-2">
+            <h5> Hotdog Combo</h5>
+            (Hotdog, Chips, Drink)<br>
+            {{250 | currency: 'USD': true}}
+          </button>
           <button (click)="addItemToOrder(menuItem)" [disabled]="menuItem.maxPerOrder < 1" class="btn btn-primary m-2" *ngFor="let menuItem of menuItems">
             <p> {{menuItem.name | uppercase}} <ng-template [ngIf]="menuItem.maxPerOrder">({{menuItem.maxPerOrder}})</ng-template></p>
             <p> {{menuItem.price / 100 | currency: 'USD': true}} </p>

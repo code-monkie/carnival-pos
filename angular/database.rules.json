@@ -3,7 +3,8 @@
     ".read": "auth != null",
     ".write": "auth != null",
     "orders": {
-      ".write": true
+      ".write": true,
+      ".indexOn": ["processed"]
     },
     "menu-item": {
       ".read": true

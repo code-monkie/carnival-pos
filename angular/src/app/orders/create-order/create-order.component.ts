@@ -23,34 +23,22 @@ export class CreateOrderComponent implements OnInit, CanComponentDeactivate {
       (snapshot) => {
         this.menuItems = snapshot.val();
         this.loading = false;
-      }
-    ).catch(
-      error => console.log(error)
-    );
-
+      }).catch(
+        error => console.log(error)
+      );
     this.initializeCurrentOrder();
   }
 
   private initializeCurrentOrder() {
     this.currentOrder = {
-      name: "",
-      orderedItems: [],
-      refundItems: [],
-      customerName: "Test",
-      isClown: false,
-      total: 0,
-      submittedTime: undefined,
+      name: "", orderedItems: [], refundItems: [], customerName: "Test", isClown: false, total: 0, submittedTime: undefined,
     };
   }
   
   public addItemToOrder(menuItem: MenuItem) {
     this.currentOrder.orderedItems.push({
-      name: menuItem.name,
-      price: menuItem.price,
-      imageUrl: "",
-      description: "",
-      extras: [],
-      returnable: menuItem.returnable == undefined ? false : menuItem.returnable
+      name: menuItem.name, price: menuItem.price, imageUrl: "", description: "", extras: [], 
+        returnable: menuItem.returnable == undefined ? false : menuItem.returnable
     });
 
     if (menuItem.maxPerOrder != undefined) {
@@ -61,29 +49,39 @@ export class CreateOrderComponent implements OnInit, CanComponentDeactivate {
   }
 
   public removeItemFromOrder(index: number) {
-    let order = this.currentOrder.orderedItems[index];
-    this.currentOrder.total = this.currentOrder.total - order.price;
+    let itemToRemove = this.currentOrder.orderedItems[index];
+    this.currentOrder.total = this.currentOrder.total - itemToRemove.price;
+    this.restoreCountForMaxPerOrder(itemToRemove);
+    this.currentOrder.orderedItems.splice(index, 1);
+  }
+
+  private restoreCountForMaxPerOrder(menuItemToUpdate: MenuItem) {
     this.menuItems.forEach(menuItem => {
-      if (menuItem.name === order.name && menuItem.maxPerOrder != undefined) {
+      if (menuItem.name === menuItemToUpdate.name && menuItem.maxPerOrder != undefined) {
         menuItem.maxPerOrder += 1;
       }
     });
-
-    this.currentOrder.orderedItems.splice(index, 1);
   }
 
   public submitOrder() {
     this.ordersService.addOrder(this.currentOrder).then(
-      () => {
-        this.initializeCurrentOrder()
-      }
+      () => this.clearOrder()
+    ).catch (
+      error => console.log(error)
     );
+  }
+
+  public clearOrder() {
+      this.currentOrder.orderedItems.forEach(
+        menuItem => this.restoreCountForMaxPerOrder(menuItem)
+      );
+      this.initializeCurrentOrder();
   }
 
   public canDeactivate() {
     if (this.currentOrder.orderedItems.length === 0) {
       return true;
     }
-    return window.confirm('Leave unfinished order?');
+    return window.confirm('You haven\'t submitted your order. Do you really want to leave the page??');
   }
 }
