@@ -8,8 +8,8 @@
       <div class="navbar-nav">
         <a class="nav-link" routerLink="/orders/create">PLACE AN ORDER</a>
         <ng-template [ngIf]="isAuthenticated()">
-          <a class="nav-link" routerLink="/orders/transactions">TRANSACTION HISTORY</a>
           <a class="nav-link" routerLink="/orders/processing">PROCESS ORDERS</a>
+          <a class="nav-link" routerLink="/orders/transactions">ORDER HISTORY</a>
         </ng-template>
       </div>
       <div class="navbar-nav ml-auto">
