@@ -7,9 +7,28 @@ import * as firebase from 'firebase';
 @Injectable()
 export class OrdersService {
   database: firebase.database.Database;
+  open: false;
 
   constructor() { 
     this.database = firebase.database();
+
+    this.database.ref("open").on("value",
+      snapshot => {
+        this.open = snapshot.val();
+      }
+    );
+  }
+
+  public isOpenForBusiness() {
+    return this.open;
+  }
+
+  public openForBusiness() {
+    return this.database.ref("open/").set(true).then();
+  }
+
+  public closeForBusiness() {
+    return this.database.ref("open/").set(false).then();
   }
 
   public getOrders() {

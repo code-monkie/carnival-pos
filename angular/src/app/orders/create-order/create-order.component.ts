@@ -71,11 +71,17 @@ export class CreateOrderComponent implements OnInit, CanComponentDeactivate {
   }
 
   public submitOrder() {
-    this.ordersService.addOrder(this.currentOrder).then(
-      () => this.clearOrder()
-    ).catch (
-      error => console.log(error)
-    );
+    if (this.ordersService.isOpenForBusiness()){
+      this.ordersService.addOrder(this.currentOrder).then(
+        () => this.clearOrder()
+      ).catch (
+        error => console.log(error)
+      );
+    } 
+    else {
+      window.alert("Sorry! The Cafe' is close!");
+    }
+
   }
 
   public clearOrder() {

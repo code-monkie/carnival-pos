@@ -17,7 +17,7 @@
         <a class="nav-link" routerLink="/story">SAM'S STORY</a>
         <ng-template [ngIf]="!isAuthenticated()">
           <a class="nav-link" routerLink="/signin">LOGIN</a>
-          <a class="nav-link" routerLink="/register">REGISTER</a>
+          <!-- <a class="nav-link" routerLink="/register">REGISTER</a> -->
         </ng-template>
         <ng-template [ngIf]="isAuthenticated()">
           <li class="nav-link"><a class="hand" (click)="logout()">LOGOUT</a></li>

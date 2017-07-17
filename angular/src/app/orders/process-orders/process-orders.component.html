@@ -1,5 +1,7 @@
 <section id="process">
   <div class="container">
+    <button class="btn btn-info btn-lg btn-block p-5 mb-2" *ngIf="!ordersService.isOpenForBusiness()" (click)="ordersService.openForBusiness()">Open for business!</button>
+    <button class="btn btn-warning btn-lg btn-block p-5 mb-2" *ngIf="ordersService.isOpenForBusiness()" (click)="ordersService.closeForBusiness()">Close for business!</button> 
     <div *ngIf="orders != undefined && orders.length >= 0">
       <div *ngFor="let order of orders">
         <app-available-order [order]="order"></app-available-order>

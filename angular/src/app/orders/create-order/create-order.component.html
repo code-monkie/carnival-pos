@@ -1,7 +1,7 @@
 <section id="order">
   <div class="container">
     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
-    <div class="row" *ngIf="!loading">
+    <div class="row" *ngIf="!loading && ordersService.isOpenForBusiness()">
       <div class="col-md-4">
         <div class="card p-4">
           <h1>Current Order</h1>
@@ -45,5 +45,6 @@
       </div>
       <hr>
     </div>
+    <h1 class="text-center" *ngIf="!loading && !ordersService.isOpenForBusiness()">We're closed for a bit! Sorry!</h1>
   </div>
 </section>
