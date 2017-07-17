@@ -22,7 +22,7 @@
           </div>
           <div *ngFor="let extra of menuItem.extras">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-6 pl-5">
                 {{extra.name | uppercase}}
               </div>
               <div class="col-md-6">
@@ -35,7 +35,7 @@
         <h4 class="text-danger" *ngIf="order.refundItems != undefined && order.refundItems.length > 0">Refunded Items</h4>
         <div *ngFor="let refundItem of order.refundItems" class="alert alert-danger">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mx-3">
               {{refundItem.name | uppercase}}
             </div>
             <div class="col-md-3">
