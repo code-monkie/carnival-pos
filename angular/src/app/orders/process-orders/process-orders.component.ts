@@ -12,7 +12,7 @@ export class ProcessOrdersComponent implements OnInit {
 
   orders: Order[];
 
-  constructor(private ordersService: OrdersService) { }
+  constructor(public ordersService: OrdersService) { }
 
   public ngOnInit() {
     this.ordersService.getAndListenToOrdersForProcessing().on("value", 

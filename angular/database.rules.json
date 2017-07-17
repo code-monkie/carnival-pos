@@ -8,6 +8,9 @@
     },
     "menu-item": {
       ".read": true
+    },
+    "open": {
+      ".read": true
     }
   }
 }

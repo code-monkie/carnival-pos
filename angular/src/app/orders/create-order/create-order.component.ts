@@ -16,7 +16,7 @@ export class CreateOrderComponent implements OnInit, CanComponentDeactivate {
   menuItems: MenuItem[];
   loading: boolean = true;
 
-  constructor(private menuService: MenusService, private ordersService: OrdersService ) { }
+  constructor(private menuService: MenusService, public ordersService: OrdersService ) { }
 
   public ngOnInit() {
     this.menuService.getMenuItems().once("value").then(
