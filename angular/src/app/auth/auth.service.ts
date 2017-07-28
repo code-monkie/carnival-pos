@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
-  token: string;
 
   constructor(private router: Router) {}
 
@@ -32,7 +31,6 @@ export class AuthService {
 
   public logout() {
     firebase.auth().signOut();
-    this.token = undefined;
   }
 
   public isAuthenticated() {
